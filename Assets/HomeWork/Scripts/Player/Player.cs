@@ -1,12 +1,12 @@
 using UnityEngine;
 
-[RequireComponent (typeof(InputReader), typeof(PlayerMotion), typeof(PlayerSpriteVariation))]
+[RequireComponent (typeof(InputReader), typeof(PlayerMotion), typeof(PlayerAnimator))]
 [RequireComponent(typeof(CollisionHandler))]
 public class Player : MonoBehaviour
 {
     private InputReader _inputReader;
     private PlayerMotion _playerMotion;
-    private PlayerSpriteVariation _playerSpriteVariation;
+    private PlayerAnimator _playerAnimator;
     private CollisionHandler _collisionHandler;
 
     private IInteractable _interactable;
@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     {
         _inputReader = GetComponent<InputReader>();
         _playerMotion = GetComponent<PlayerMotion>();
-        _playerSpriteVariation = GetComponent<PlayerSpriteVariation>();
+        _playerAnimator = GetComponent<PlayerAnimator>();
         _collisionHandler = GetComponent<CollisionHandler>();
     }
 
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         _playerMotion.Move(_inputReader.GetMoveInput());
-        _playerSpriteVariation.ChangeSprites(_inputReader.GetMoveInput());
+        _playerAnimator.SetMoveAnimation(_inputReader.GetMoveInput());
         
         if(_inputReader.GetIsInteract() && _interactable != null)
         {

@@ -29,13 +29,15 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, _seeAreaSize, _playerLayer);
-        
-            Debug.Log(hit);
-        
-        
+        if (TrySeeTarget(out Transform target))
+        {
+            Move(target);
+            Debug.Log(target.position);
+            return;
+        }
+
         if (_isWaiting == false)
-            Move();
+            Move(_target);
 
         if (IsTargetReached() && _isWaiting == false)
         {
@@ -44,11 +46,32 @@ public class Enemy : MonoBehaviour
         }
 
         if (_isWaiting && _endWaitTime <= Time.time)
-
         {
             ChangeTarget();
             _isWaiting = false;
         }
+    }
+
+    private bool TrySeeTarget(out Transform target)
+    {
+        target = null;
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, _seeAreaSize, _playerLayer);
+
+        if (hit != null)
+        {
+            Vector2 direction = (hit.transform.position - _target.position).normalized;
+            RaycastHit2D hit2D = Physics2D.Raycast(transform.position, direction, _seeAreaSize, ~(1 << gameObject.layer));
+
+            if (hit2D.collider != null)
+            {
+                if (hit2D.collider == hit)
+                {
+                    target = hit2D.transform;
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private bool IsTargetReached()
@@ -69,9 +92,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Move()
+    private void Move(Transform target)
     {
-        Vector2 newPOsition = Vector2.MoveTowards(transform.position, _target.position, _speed * Time.fixedDeltaTime);
+        Vector2 newPOsition = Vector2.MoveTowards(transform.position, target.position, _speed * Time.fixedDeltaTime);
         _rigidbody.MovePosition(newPOsition);
     }
 

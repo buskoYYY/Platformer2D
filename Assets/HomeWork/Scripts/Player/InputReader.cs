@@ -26,6 +26,6 @@ public class InputReader : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        _moveInput = value.Get<Vector2>();
+        _moveInput = value.Get<Vector2>().normalized;
     }
 }
