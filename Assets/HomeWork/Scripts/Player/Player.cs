@@ -1,11 +1,11 @@
 using UnityEngine;
 
-[RequireComponent (typeof(InputReader), typeof(PlayerMotion), typeof(PlayerAnimator))]
+[RequireComponent (typeof(InputReader), typeof(Mover), typeof(PlayerAnimator))]
 [RequireComponent(typeof(CollisionHandler))]
 public class Player : MonoBehaviour
 {
     private InputReader _inputReader;
-    private PlayerMotion _playerMotion;
+    private Mover _playerMotion;
     private PlayerAnimator _playerAnimator;
     private CollisionHandler _collisionHandler;
 
@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _inputReader = GetComponent<InputReader>();
-        _playerMotion = GetComponent<PlayerMotion>();
+        _playerMotion = GetComponent<Mover>();
         _playerAnimator = GetComponent<PlayerAnimator>();
         _collisionHandler = GetComponent<CollisionHandler>();
     }
