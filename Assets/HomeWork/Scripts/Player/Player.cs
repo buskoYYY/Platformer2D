@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent (typeof(InputReader), typeof(Mover), typeof(PlayerAnimator))]
+[RequireComponent(typeof(InputReader), typeof(Mover), typeof(PlayerAnimator))]
 [RequireComponent(typeof(CollisionHandler))]
 public class Player : MonoBehaviour
 {
@@ -32,8 +32,9 @@ public class Player : MonoBehaviour
     {
         _playerMotion.Move(_inputReader.GetMoveInput());
         _playerAnimator.SetMoveAnimation(_inputReader.GetMoveInput());
-        
-        if(_inputReader.GetIsInteract() && _interactable != null)
+        _playerAnimator.SetAttackAnimation(_inputReader.GetAttack());
+
+        if (_inputReader.GetIsInteract() && _interactable != null)
         {
             _interactable.Interact();
         }

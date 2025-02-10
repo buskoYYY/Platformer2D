@@ -14,4 +14,9 @@ public class PlayerAnimator : MonoBehaviour
         _animator.SetFloat(ConstantData.AnimatorParametr.MoveX, direction.x);
         _animator.SetFloat(ConstantData.AnimatorParametr.MoveY, direction.y);
     }
+
+    public void SetAttackAnimation(bool attack)
+    {
+        _animator.SetBool(ConstantData.AnimatorParametr.IsAttack,attack);
+    }
 }

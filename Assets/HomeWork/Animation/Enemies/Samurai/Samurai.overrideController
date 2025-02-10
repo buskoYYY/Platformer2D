@@ -8,4 +8,20 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Samurai
   m_Controller: {fileID: 9100000, guid: 5fec277c8343e274aa2e1dc491b755ba, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 07fdd9e8a32be1542b4a5b498623ece3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4f0f562b957998b4caedcc09e6fecc4c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5dc4e7de3d03dd04da77b847c25cadb1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2bcf242b1c213854d84f613c7154ac45, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8f73da20cb4d2d948aee9df7bf81a4b3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 324e4b0bc6416a1419fe81b45587c14f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f7dc58a66d3b60343859054a056d1aa7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ae7fcf4b7d36e884fbf72e6dff2cf3ec, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 37b29beaaeac39a4a9bc913008906970, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 99f03955e4935034dae56574b47fc11a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f680da2b338e0a04fa117da404dd0500, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 501fe472caa023e4f8474e0446f5686b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 181ac12104cfff34293ea28f75f455e8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cfda77f3887b1ce4b9a01549c1db01ad, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8140c10b11170ca44b6276b28db80ab9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c2d04e0cf4f411c419373458a7d01e19, type: 2}
