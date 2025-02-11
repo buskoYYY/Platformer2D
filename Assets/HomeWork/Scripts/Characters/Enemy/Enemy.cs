@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("Elements")]
     [SerializeField] private WayPoint[] _wayPoints;
+    private Health _health;
     private EnemyVision _enemyVision;
     private Mover _mover;
     private Transform _target;
@@ -13,13 +14,17 @@ public class Enemy : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private float _waitTime;
+    [SerializeField] private int _maxHealth;
     private int _wayPointIndex;
     private float _maxSqrDistance = 0.01f;
     private float _endWaitTime;
     private bool _isWaiting;
 
-
     private void Awake()
+    {
+        _health = new Health(_maxHealth);
+    }
+    private void Start()
     {
         _mover = GetComponent<Mover>();
         _enemyVision = GetComponent<EnemyVision>();
@@ -68,5 +73,13 @@ public class Enemy : MonoBehaviour
     {
         _wayPointIndex = ++_wayPointIndex % _wayPoints.Length;
         _target = _wayPoints[_wayPointIndex].transform;
+    }
+
+    public void ApplyDamage(int damage)
+    {
+        _health.ApplyDamage(damage);
+
+        if (_health.Value <= 0)
+            Destroy(gameObject);
     }
 }
