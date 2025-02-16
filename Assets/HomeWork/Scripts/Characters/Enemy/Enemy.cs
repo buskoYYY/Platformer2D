@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyVision), typeof(Mover), typeof(EnemyAnimation))]
+[RequireComponent(typeof(EnemyAttacker))]
 public class Enemy : MonoBehaviour
 {
     [Header("Elements")]
@@ -10,6 +11,7 @@ public class Enemy : MonoBehaviour
     private Mover _mover;
     private Transform _target;
     private EnemyAnimation _animation;
+    private EnemyAttacker _attacker;
 
 
     [Header("Settings")]
@@ -29,6 +31,7 @@ public class Enemy : MonoBehaviour
         _mover = GetComponent<Mover>();
         _enemyVision = GetComponent<EnemyVision>();
         _animation = GetComponent<EnemyAnimation>();
+        _attacker = GetComponent<EnemyAttacker>();
         _target = _wayPoints[_wayPointIndex].transform;
     }
 
@@ -37,29 +40,38 @@ public class Enemy : MonoBehaviour
 
         if (_enemyVision.TrySeeTarget(out Transform target))
         {
-            _animation.SetMoveAnimation(target.position, transform.position);
-            _mover.Move(target);
-            return;
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                _attacker.Attack();
+                Debug.Log("Attack");
+            }
+            else
+            {
+                _animation.SetMoveAnimation(target.position, transform.position);
+                _mover.Move(target);
+            }
         }
-
-        if (_isWaiting == false)
+        else
         {
-            _animation.SetMoveAnimation(_target.position, transform.position);
-            _mover.Move(_target);
-        }
+            if (_isWaiting == false)
+            {
+                _animation.SetMoveAnimation(_target.position, transform.position);
+                _mover.Move(_target);
+            }
 
-        if (IsTargetReached() && _isWaiting == false)
-        {
-            _isWaiting = true;
-            _endWaitTime = Time.time + _waitTime;
-            _animation.SetIdleAnimation(false);
-        }
+            if (IsTargetReached() && _isWaiting == false)
+            {
+                _isWaiting = true;
+                _endWaitTime = Time.time + _waitTime;
+                _animation.SetIdleAnimation(false);
+            }
 
-        if (_isWaiting && _endWaitTime <= Time.time)
-        {
-            ChangeTarget();
-            _isWaiting = false;
-            _animation.SetIdleAnimation(true);
+            if (_isWaiting && _endWaitTime <= Time.time)
+            {
+                ChangeTarget();
+                _isWaiting = false;
+                _animation.SetIdleAnimation(true);
+            }
         }
     }
 
