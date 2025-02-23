@@ -1,14 +1,18 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class InputReader : MonoBehaviour
 {
+    [Header("Settings")]
     private Vector2 _moveInput;
     private bool _isInteract;
     private bool _isAttack;
 
     private void Update()
     {
+        if(TimeManager.IsPaused) return;
+
         if(Input.GetKeyDown(KeyCode.F))
         {
             _isInteract = true;
@@ -33,12 +37,12 @@ public class InputReader : MonoBehaviour
     
     void OnFire(InputValue value)
     {
-        if(value.isPressed)
+        if (EventSystem.current.IsPointerOverGameObject()) return;
+        if (value.isPressed)
         {
             _isAttack = true;
         }
     }
-
     private bool GetBoolAsTrigger(ref bool value)
     {
         bool lockalValue = value;

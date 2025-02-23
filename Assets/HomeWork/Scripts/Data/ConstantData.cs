@@ -8,6 +8,6 @@ public static class ConstantData
         public static readonly int IsMoving = Animator.StringToHash(nameof(IsMoving));
         public static readonly int IsOpen = Animator.StringToHash(nameof(IsOpen));
         public static readonly int IsClose = Animator.StringToHash(nameof(IsClose));
-        public static readonly int IsAttack = Animator.StringToHash(nameof(IsAttack));
+        public static readonly int Attack = Animator.StringToHash(nameof(Attack));
     }
 }

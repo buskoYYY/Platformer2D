@@ -20,8 +20,10 @@ public class EnemyAnimation : MonoBehaviour
     {
         _animator.SetBool(ConstantData.AnimatorParametr.IsMoving, state);
     }
-    public void SetAttackAnimation(bool attack)
+
+    public void SetAttackAnimation()
     {
-        _animator.SetBool(ConstantData.AnimatorParametr.IsAttack, attack);
+        _animator.SetTrigger(ConstantData.AnimatorParametr.Attack);
     }
+
 }

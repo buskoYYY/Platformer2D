@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyVision), typeof(Mover), typeof(EnemyAnimation))]
-[RequireComponent(typeof(EnemyAttacker))]
+[RequireComponent(typeof(PlayerAttacker))]
 public class Enemy : MonoBehaviour
 {
     [Header("Elements")]
@@ -11,8 +11,6 @@ public class Enemy : MonoBehaviour
     private Mover _mover;
     private Transform _target;
     private EnemyAnimation _animation;
-    private EnemyAttacker _attacker;
-
 
     [Header("Settings")]
     [SerializeField] private float _waitTime;
@@ -31,25 +29,17 @@ public class Enemy : MonoBehaviour
         _mover = GetComponent<Mover>();
         _enemyVision = GetComponent<EnemyVision>();
         _animation = GetComponent<EnemyAnimation>();
-        _attacker = GetComponent<EnemyAttacker>();
         _target = _wayPoints[_wayPointIndex].transform;
     }
 
     private void FixedUpdate()
     {
+        if (TimeManager.IsPaused) return;
 
         if (_enemyVision.TrySeeTarget(out Transform target))
-        {
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                _attacker.Attack();
-                Debug.Log("Attack");
-            }
-            else
-            {
+        {           
                 _animation.SetMoveAnimation(target.position, transform.position);
                 _mover.Move(target);
-            }
         }
         else
         {

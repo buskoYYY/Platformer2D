@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ActionPatrol : StateMachineAction
 {
+    [Header("Elements")]
     [SerializeField] private WayPoint[] _wayPoints;
+    [SerializeField] private float _waitTime;
     private Transform _target;
     private Mover _mover;
+    private EnemyAnimation _animation;
 
-    [SerializeField] private float _speed;
-    [SerializeField] private float _waitTime;
     private int _wayPointIndex;
     private float _maxSqrDistance = 0.01f;
     private float _endWaitTime;
@@ -18,6 +17,7 @@ public class ActionPatrol : StateMachineAction
     private void Start()
     {
         _mover = GetComponent<Mover>();
+        _animation = GetComponent<EnemyAnimation>();
         _target = _wayPoints[_wayPointIndex].transform;
     }
     public override void Act()
@@ -25,12 +25,11 @@ public class ActionPatrol : StateMachineAction
         Patrol();
     }
 
-
     private void Patrol()
     {
         if (_isWaiting == false)
         {
-            //_animation.SetMoveAnimation(_target.position, transform.position);
+            _animation.SetMoveAnimation(_target.position, transform.position);
             _mover.Move(_target);
         }
 
@@ -38,14 +37,14 @@ public class ActionPatrol : StateMachineAction
         {
             _isWaiting = true;
             _endWaitTime = Time.time + _waitTime;
-           // _animation.SetIdleAnimation(false);
+           _animation.SetIdleAnimation(false);
         }
 
         if (_isWaiting && _endWaitTime <= Time.time)
         {
             ChangeTarget();
             _isWaiting = false;
-           // _animation.SetIdleAnimation(true);
+           _animation.SetIdleAnimation(true);
         }
     }
 
