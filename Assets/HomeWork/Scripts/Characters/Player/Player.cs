@@ -6,6 +6,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public event Action Died;
+    public static event Action <Vector2> StartDeathEffects;
+    public static event Action<Vector2, Quaternion> PlayerHitEffect;
 
     [Header("Elements")]
     private InputReader _inputReader;
@@ -18,7 +20,7 @@ public class Player : MonoBehaviour
     [Header("Interface")]
     private IInteractable _interactable;
 
-    [Header("Elements")]
+    [Header("Settings")]
     [SerializeField] private int _maxHealth;
 
     private void Awake()
@@ -34,12 +36,12 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        _health.Died += Ondied;
+        Health.Died += Ondied;
         _collisionHandler.CollisionHappend += OnCollisionHappend;
     }
     private void OnDisable()
     {
-        _health.Died -= Ondied;
+        Health.Died -= Ondied;
         _collisionHandler.CollisionHappend -= OnCollisionHappend;
     }
     void FixedUpdate()
@@ -57,7 +59,17 @@ public class Player : MonoBehaviour
     }
     public void ApplyDamage(int damage)
     {
-        _health.ApplyDamage(damage);
+        Debug.Log(_health.Value);
+        if (_health.Value <= 0)
+        {
+            StartDeathEffects?.Invoke(transform.position);
+            Destroy(gameObject);
+        }
+        else
+        {
+            _health.ApplyDamage(damage);
+            PlayerHitEffect?.Invoke(transform.position, transform.rotation);
+        }
     }
     public void Heal(int value)
     {

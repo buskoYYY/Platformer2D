@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class Health
 {
-    public event Action TakingDamage; //добавится позже
-    public event Action Died;
+    public static event Action Died;
     public Health(int maxValue)
     {
         MaxValue = maxValue;
@@ -17,12 +16,9 @@ public class Health
         if (damage < 0)
             return;
         ChangeValue(-damage);
-        TakingDamage?.Invoke();
-
         if (Value == 0)
         {
             Died?.Invoke();
-
         }
     }
     public void Heal ( int value)

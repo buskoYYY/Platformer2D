@@ -1,17 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackPlayerDecision : StateMachineDecision
 {
     [SerializeField] LayerMask _playerLayer;
     [SerializeField] private float _radius;
-    private EnemyAnimation _animation;
-
-    private void Start()
-    {
-        _animation = GetComponent<EnemyAnimation>();
-    }
+    public bool IsAttackState {  get; private set; }
     public override bool Decide()
     {
         return AttackState();
@@ -23,10 +16,12 @@ public class AttackPlayerDecision : StateMachineDecision
 
         if (hit != null && hit.GetComponent<Player>())
         {
+            IsAttackState = true;
             return true;
         }
         else
         {
+            IsAttackState = false;
             return false;
         }
     }

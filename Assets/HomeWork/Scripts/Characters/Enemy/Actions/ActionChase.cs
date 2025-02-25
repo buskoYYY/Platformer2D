@@ -1,5 +1,7 @@
 using UnityEngine;
 
+[RequireComponent (typeof(EnemyBrain), typeof(EnemyAnimation), typeof(Mover))]
+
 public class ActionChase : StateMachineAction
 {
     private EnemyBrain _enemy;

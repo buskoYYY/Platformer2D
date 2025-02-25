@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent (typeof(Mover),typeof(EnemyAnimation))]
 public class ActionPatrol : StateMachineAction
 {
     [Header("Elements")]

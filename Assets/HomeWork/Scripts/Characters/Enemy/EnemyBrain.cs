@@ -1,11 +1,16 @@
+using System;
 using UnityEngine;
 
 public class EnemyBrain : MonoBehaviour
 {
+    public static event Action<Vector2> StartDeathEffects;
+    public static event Action<Vector2, Quaternion> EnemyHitEffect;
+
+    [SerializeField] private StateMachineState[] _states;
+    [SerializeField] private EnemyAnimationEvent _animationEvent;
     private Health _health;
 
     [SerializeField] private string _initState;
-    [SerializeField] private StateMachineState[] _states;
     [SerializeField] private int _maxHealth;
     public  Transform Player { get; set; }
     public StateMachineState CurrentState { get; set; }
@@ -42,9 +47,16 @@ public class EnemyBrain : MonoBehaviour
     }
     public void ApplyDamage(int damage)
     {
-        _health.ApplyDamage(damage);
 
         if (_health.Value <= 0)
+        {
+            StartDeathEffects?.Invoke(transform.position);
             Destroy(gameObject);
+        }
+        else
+        {
+            _health.ApplyDamage(damage);
+            EnemyHitEffect?.Invoke(transform.position, transform.rotation);
+        }
     }
 }
