@@ -6,10 +6,12 @@ public class EnemyBrain : MonoBehaviour
     public static event Action<Vector2> StartDeathEffects;
     public static event Action<Vector2, Quaternion> EnemyHitEffect;
 
+    [Header("Elements")]
     [SerializeField] private StateMachineState[] _states;
-    [SerializeField] private EnemyAnimationEvent _animationEvent;
+    [SerializeField] private HealthBar _healthBar;
     private Health _health;
 
+    [Header("Settings")]
     [SerializeField] private string _initState;
     [SerializeField] private int _maxHealth;
     public  Transform Player { get; set; }
@@ -17,6 +19,7 @@ public class EnemyBrain : MonoBehaviour
     private void Awake()
     {
         _health = new Health(_maxHealth);
+        _healthBar.Initialize(_health);
     }
     private void Start()
     {

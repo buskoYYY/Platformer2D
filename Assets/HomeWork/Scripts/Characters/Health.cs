@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Health
 {
+    
+    public event Action<float,float> ValueChanged;
     public static event Action Died;
     public Health(int maxValue)
     {
@@ -28,5 +30,8 @@ public class Health
         ChangeValue(value);
     }
     public void ChangeValue(int value)
-    { Value = Mathf.Clamp(Value + value, 0, MaxValue); }
+    {
+        Value = Mathf.Clamp(Value + value, 0, MaxValue); 
+        ValueChanged?.Invoke(Value,MaxValue);
+    }
 }

@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public static event Action<Vector2, Quaternion> PlayerHitEffect;
 
     [Header("Elements")]
+    [SerializeField] private HealthBar _healthBar;
     private InputReader _inputReader;
     private Mover _playerMotion;
     private PlayerAnimator _playerAnimator;
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _health = new Health(_maxHealth);
+        _healthBar.Initialize(_health);
 
         _inputReader = GetComponent<InputReader>();
         _playerMotion = GetComponent<Mover>();
