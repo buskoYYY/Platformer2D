@@ -15,6 +15,8 @@ public class Mover : MonoBehaviour
     private float _currentSpeed;
     private float _currentEnemySpeed;
 
+    public bool IsAccelerate {  get; private set; }
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -27,10 +29,15 @@ public class Mover : MonoBehaviour
     }
     public void Move(Vector2 move,PlayerSounds audio)
     {
-        if(move.magnitude > 0)
+        if (move.magnitude > 0 && _currentSpeed == _extraSpeed)
+        {
+            audio.PlayAccelerationSound();
+        }
+        else if (move.magnitude > 0)
         {
             audio.PlayStepSound();
         }
+
         _rigidbody.velocity = move * _currentSpeed;
 
     }
@@ -49,10 +56,12 @@ public class Mover : MonoBehaviour
         if (Input.GetKey(KeyCode.B))
         {
             _currentSpeed = _extraSpeed;
+            IsAccelerate = true;
         }
         else
         {
             _currentSpeed = _normalSpeed;
+            IsAccelerate = false;
         }
     }
     IEnumerator StopMoveRoutine()

@@ -64,6 +64,10 @@ public class Player : MonoBehaviour
         {
             _interactable.Interact();
         }
+  /*      if(_playerMotion.IsAccelerate)
+        {
+            _audio.PlayAccelerationSound();
+        }*/
     }
     public void ApplyDamage(int damage)
     {
