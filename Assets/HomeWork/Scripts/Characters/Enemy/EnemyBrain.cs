@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemySound))]
 public class EnemyBrain : MonoBehaviour
 {
     public static event Action<Vector2> StartDeathEffects;
@@ -9,6 +10,7 @@ public class EnemyBrain : MonoBehaviour
     [Header("Elements")]
     [SerializeField] private StateMachineState[] _states;
     [SerializeField] private HealthBar _healthBar;
+    private EnemySound _sound;
     private Health _health;
 
     [Header("Settings")]
@@ -20,6 +22,7 @@ public class EnemyBrain : MonoBehaviour
     {
         _health = new Health(_maxHealth);
         _healthBar.Initialize(_health);
+        _sound = GetComponent<EnemySound>();
     }
     private void Start()
     {
@@ -50,15 +53,16 @@ public class EnemyBrain : MonoBehaviour
     }
     public void ApplyDamage(int damage)
     {
-
+        _health.ApplyDamage(damage);
         if (_health.Value <= 0)
         {
+            _sound.PlayDeathSound();
             StartDeathEffects?.Invoke(transform.position);
             Destroy(gameObject);
         }
         else
         {
-            _health.ApplyDamage(damage);
+            _sound.PlayHitSound();
             EnemyHitEffect?.Invoke(transform.position, transform.rotation);
         }
     }

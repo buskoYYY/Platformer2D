@@ -11,8 +11,6 @@ public class Sword : MonoBehaviour
         if (collision.TryGetComponent(out EnemyBrain enemy))
         {
             enemy.ApplyDamage(_damage);
-           // EnemyHitEffectDamage?.Invoke(enemy.transform.position);
-            Debug.Log("Damage");
         }
     }
 }

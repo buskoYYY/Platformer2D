@@ -5,7 +5,7 @@ public class Health
 {
     
     public event Action<float,float> ValueChanged;
-    public static event Action Died;
+    public static event Action PlayerDied;
     public Health(int maxValue)
     {
         MaxValue = maxValue;
@@ -13,15 +13,11 @@ public class Health
     }
     public int MaxValue {  get; private set; }
     public int Value {  get; private set; }
-    public void ApplyDamage(int damage)
+    public virtual void ApplyDamage(int damage)
     {
-        if (damage < 0)
-            return;
         ChangeValue(-damage);
-        if (Value == 0)
-        {
-            Died?.Invoke();
-        }
+        if (damage <= 0)
+            return;
     }
     public void Heal ( int value)
     {

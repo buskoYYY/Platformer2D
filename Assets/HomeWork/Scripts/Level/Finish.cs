@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Finish : MonoBehaviour, IInteractable
 {
-    [SerializeField] public Door[] _doors;
+    [SerializeField] public Lever[] _doors;
     public void Interact()
     {
         if (_doors.All(i => i.IsActive))

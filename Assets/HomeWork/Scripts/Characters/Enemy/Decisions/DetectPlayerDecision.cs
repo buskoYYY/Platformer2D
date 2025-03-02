@@ -4,6 +4,7 @@ public class DetectPlayerDecision : StateMachineDecision
 {
     [Header("Elements")]
     [SerializeField] LayerMask _playerLayer;
+    [SerializeField] LayerMask _playerSwordLayer;
     private EnemyBrain _enemy;
 
     [Header("Settings")]
@@ -20,13 +21,13 @@ public class DetectPlayerDecision : StateMachineDecision
 
     private bool TrySeeTarget()
     {
+        _enemy.Player = null;
         Collider2D hit = Physics2D.OverlapCircle(transform.position, _seeAreaSize, _playerLayer);
 
         if (hit != null)
         {
             Vector2 direction = (hit.transform.position - transform.position).normalized;
-            RaycastHit2D hit2D = Physics2D.Raycast(transform.position, direction, _seeAreaSize, ~(1 << gameObject.layer));
-
+            RaycastHit2D hit2D = Physics2D.Raycast(transform.position, direction, _seeAreaSize, ~(1 << gameObject.layer | _playerSwordLayer));
             if (hit2D.collider != null)
             {
                 if (hit2D.collider == hit)

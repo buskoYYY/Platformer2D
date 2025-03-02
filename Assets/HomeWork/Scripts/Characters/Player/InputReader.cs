@@ -24,7 +24,7 @@ public class InputReader : MonoBehaviour
         _isInteract = false;
         return isInteract;
     }
-    public Vector3 GetMoveInput()
+    public Vector2 GetMoveInput()
     {
         return _moveInput;
     }

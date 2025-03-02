@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class Door : MonoBehaviour, IInteractable
+public class Lever : MonoBehaviour, IInteractable
 {
     private Animator _animator;
 

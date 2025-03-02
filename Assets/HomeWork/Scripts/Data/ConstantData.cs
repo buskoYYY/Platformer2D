@@ -10,4 +10,15 @@ public static class ConstantData
         public static readonly int IsClose = Animator.StringToHash(nameof(IsClose));
         public static readonly int Attack = Animator.StringToHash(nameof(Attack));
     }
+
+    public static class SaveData
+    {
+        public const string MUSIC_KEY = "Music";
+        public const string MUSIC_MUTE_KEY = "MusicIsOn";
+        public const string SOUND_KEY = "Sound";
+        public const string SOUND_MUTE_KEY = "SoundIsOn";
+        public const int IS_ON_VALUE = 1;
+        public const int IS_OF_VALUE = 0;
+        public const float DEFAULT_VOLUME = 1;
+    }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent (typeof(Mover),typeof(EnemyAnimation))]
+[RequireComponent (typeof(Mover),typeof(EnemyAnimation), typeof (EnemySound))]
 public class ActionPatrol : StateMachineAction
 {
     [Header("Elements")]
@@ -9,6 +9,7 @@ public class ActionPatrol : StateMachineAction
     private Transform _target;
     private Mover _mover;
     private EnemyAnimation _animation;
+    private EnemySound _sound;
 
     private int _wayPointIndex;
     private float _maxSqrDistance = 0.01f;
@@ -19,6 +20,7 @@ public class ActionPatrol : StateMachineAction
     {
         _mover = GetComponent<Mover>();
         _animation = GetComponent<EnemyAnimation>();
+        _sound = GetComponent<EnemySound>();
         _target = _wayPoints[_wayPointIndex].transform;
     }
     public override void Act()
@@ -32,6 +34,7 @@ public class ActionPatrol : StateMachineAction
         {
             _animation.SetMoveAnimation(_target.position, transform.position);
             _mover.Move(_target);
+            _sound.PlayStepSound();
         }
 
         if (IsTargetReached() && _isWaiting == false)

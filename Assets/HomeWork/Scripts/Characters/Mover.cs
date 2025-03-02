@@ -25,9 +25,14 @@ public class Mover : MonoBehaviour
     {
         SpeedBoost();
     }
-    public void Move(Vector2 move)
+    public void Move(Vector2 move,PlayerSounds audio)
     {
+        if(move.magnitude > 0)
+        {
+            audio.PlayStepSound();
+        }
         _rigidbody.velocity = move * _currentSpeed;
+
     }
     public void Move(Transform target)
     {
