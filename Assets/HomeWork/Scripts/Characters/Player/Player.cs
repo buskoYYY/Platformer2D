@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     [Header("Elements")]
     [SerializeField] private HealthBar _healthBar;
+    [SerializeField] private Canvas _interactableCanvas;
     private InputReader _inputReader;
     private Mover _playerMotion;
     private PlayerAnimator _playerAnimator;
@@ -41,12 +42,14 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         Health.PlayerDied += Ondied;
-        _collisionHandler.CollisionHappend += OnCollisionHappend;
+        _collisionHandler.InteractacleFounded += OnInteractableFounded;
+        _collisionHandler.MedKidFounded += OnMedKitFounded;
     }
     private void OnDisable()
     {
         Health.PlayerDied -= Ondied;
-        _collisionHandler.CollisionHappend -= OnCollisionHappend;
+        _collisionHandler.InteractacleFounded -= OnInteractableFounded;
+        _collisionHandler.MedKidFounded -= OnMedKitFounded;
     }
     void FixedUpdate()
     {
@@ -64,10 +67,7 @@ public class Player : MonoBehaviour
         {
             _interactable.Interact();
         }
-  /*      if(_playerMotion.IsAccelerate)
-        {
-            _audio.PlayAccelerationSound();
-        }*/
+
     }
     public void ApplyDamage(int damage)
     {
@@ -89,9 +89,18 @@ public class Player : MonoBehaviour
         _health.Heal(value);
     }
 
-    private void OnCollisionHappend(IInteractable interactable)
+    private void OnInteractableFounded(IInteractable interactable)
     {
         _interactable = interactable;
+        _interactableCanvas.gameObject.SetActive(interactable != null);
+    }
+    private void OnMedKitFounded(MedKit medKit)
+    {
+        if(_health.Value < _health.MaxValue)
+        {
+            Heal(medKit.Value);
+            medKit.Collect();
+        }
     }
     private void Ondied()
     {
