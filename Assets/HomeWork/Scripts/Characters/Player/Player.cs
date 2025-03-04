@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [Header("Elements")]
     [SerializeField] private HealthBar _healthBar;
     [SerializeField] private Canvas _interactableCanvas;
+    [SerializeField] private InventoryView _inventoryView;
     private InputReader _inputReader;
     private Mover _playerMotion;
     private PlayerAnimator _playerAnimator;
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
     private CollisionHandler _collisionHandler;
     private PlayerSounds _audio;
     private Health _health;
+    private Inventory _inventory;
 
     [Header("Interface")]
     private IInteractable _interactable;
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _health = new Health(_maxHealth);
+        _inventory = new Inventory();
         _healthBar.Initialize(_health);
 
         _inputReader = GetComponent<InputReader>();
@@ -43,13 +46,22 @@ public class Player : MonoBehaviour
     {
         Health.PlayerDied += Ondied;
         _collisionHandler.InteractacleFounded += OnInteractableFounded;
-        _collisionHandler.MedKidFounded += OnMedKitFounded;
+        _collisionHandler.MedKitFounded += OnMedKitFounded;
+        _collisionHandler.KeyFounded += OnKeyFounded;
+
+        _inventory.ItemAdded += AddItemToInventory;
+        _inventory.ItemRemoved += _inventoryView.Remove;
     }
+
     private void OnDisable()
     {
         Health.PlayerDied -= Ondied;
         _collisionHandler.InteractacleFounded -= OnInteractableFounded;
-        _collisionHandler.MedKidFounded -= OnMedKitFounded;
+        _collisionHandler.MedKitFounded -= OnMedKitFounded;
+        _collisionHandler.KeyFounded -= OnKeyFounded;
+
+        _inventory.ItemAdded -= AddItemToInventory;
+        _inventory.ItemRemoved -= _inventoryView.Remove;
     }
     void FixedUpdate()
     {
@@ -65,10 +77,26 @@ public class Player : MonoBehaviour
 
         if (_inputReader.GetIsInteract() && _interactable != null)
         {
-            _interactable.Interact();
+            if (_interactable.IsLock)
+            {
+                if(_inventory.Contains(_interactable.Key))
+                {
+                    _interactable.Unlock((Key)_inventory.Take(_interactable.Key));
+                }    
+            }
+            else
+            {
+                _interactable.Interact();
+            }
         }
 
     }
+    private void AddItemToInventory(IItem item)
+    {
+        _inventoryView.Add(item);
+        item.Collect();
+    }
+
     public void ApplyDamage(int damage)
     {
         _health.ApplyDamage(damage);
@@ -96,11 +124,15 @@ public class Player : MonoBehaviour
     }
     private void OnMedKitFounded(MedKit medKit)
     {
-        if(_health.Value < _health.MaxValue)
+        if (_health.Value < _health.MaxValue)
         {
             Heal(medKit.Value);
             medKit.Collect();
         }
+    }
+    private void OnKeyFounded(Key key)
+    {
+        _inventory.Add(key);
     }
     private void Ondied()
     {

@@ -2,14 +2,17 @@ using System;
 using System.Linq;
 using UnityEngine;
 
-public class Finish : MonoBehaviour, IInteractable
+public class Finish : Interactable
 {
     public event Action Activated;
 
-    [SerializeField] public Lever[] _doors;
-    public void Interact()
+    [SerializeField] private Switch[] _switchers;
+
+    public override void Interact()
     {
-        if (_doors.All(i => i.IsActive))
+        if (_isLock) return;
+
+        if (_switchers.All(i => i.IsActive))
         {
             Activated?.Invoke();
         }

@@ -1,13 +1,10 @@
 using UnityEngine;
 
-public class MedKit : MonoBehaviour, IItem
+public class Key : MonoBehaviour, IItem
 {
-    [SerializeField] private int _value;
     [SerializeField] private Sprite _icon;
 
     public Sprite Icon => _icon;
-    public int Value => _value;
-
 
     public void Collect()
     {
