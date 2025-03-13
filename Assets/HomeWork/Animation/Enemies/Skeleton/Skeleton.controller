@@ -284,8 +284,8 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 'Attack Tree '
-  m_Speed: 0.5
-  m_CycleOffset: 0
+  m_Speed: 1
+  m_CycleOffset: 0.2
   m_Transitions:
   - {fileID: 2586042293630664713}
   m_StateMachineBehaviours: []
@@ -342,17 +342,17 @@ BlendTree:
     m_DirectBlendParameter: MoveX
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 4d104dbd45ee1ac4ea3f1de38e6721eb, type: 2}
+    m_Motion: {fileID: 7400000, guid: 2189075de570f0a45a041b024a25ef7c, type: 2}
     m_Threshold: 0.33333334
-    m_Position: {x: 0, y: 1}
+    m_Position: {x: 1, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: MoveX
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 2189075de570f0a45a041b024a25ef7c, type: 2}
+    m_Motion: {fileID: 7400000, guid: 4d104dbd45ee1ac4ea3f1de38e6721eb, type: 2}
     m_Threshold: 0.6666667
-    m_Position: {x: 1, y: 0}
+    m_Position: {x: 0, y: 1}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: MoveX
