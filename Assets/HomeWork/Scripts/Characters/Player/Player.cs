@@ -79,10 +79,14 @@ public class Player : MonoBehaviour
         {
             if (_interactable.IsLock)
             {
-                if(_inventory.Contains(_interactable.Key))
+                if (_inventory.Contains(_interactable.Key))
                 {
                     _interactable.Unlock((Key)_inventory.Take(_interactable.Key));
-                }    
+                }
+                else
+                {
+                    _interactable.Interact();
+                }
             }
             else
             {

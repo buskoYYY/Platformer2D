@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/HomeWork/Scenes/MainMenu.unity
     guid: c5f7bc6db9483474c8fa7eb7b376f6c1
   - enabled: 1
-    path: Assets/HomeWork/Scenes/1-st Level.unity
+    path: Assets/HomeWork/Scenes/Level1.unity
     guid: 17e1870417951bd44873e14b602da956
   - enabled: 1
-    path: Assets/HomeWork/Scenes/2-nd Level.unity
+    path: Assets/HomeWork/Scenes/Level2.unity
     guid: 333deeda8a1e5c14eb42ce976882e5ce
   - enabled: 1
-    path: Assets/HomeWork/Scenes/3-rd Level.unity
+    path: Assets/HomeWork/Scenes/Level3.unity
     guid: 395d61fa56ca34f46b11c49ff310afa8
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 5503c34cb9169334eac413076b7fa018, type: 2}
