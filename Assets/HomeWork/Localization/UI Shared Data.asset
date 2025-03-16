@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI
+  m_TableCollectionNameGuidString: cd2200ea2ab31334c9ed11a76f856c06
+  m_Entries:
+  - m_Id: 14979579904
+    m_Key: Game name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3183872720896
+    m_Key: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4408252973056
+    m_Key: Levels
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5043169935360
+    m_Key: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5296094855168
+    m_Key: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5907758596096
+    m_Key: Sounds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6602234675200
+    m_Key: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12473492717568
+    m_Key: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12820105805824
+    m_Key: Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13037597245440
+    m_Key: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14163319078912
+    m_Key: You lost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14812114993152
+    m_Key: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15351808671744
+    m_Key: You win
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15623591182336
+    m_Key: Next level
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 7454503374429356056
+  references:
+    version: 2
+    RefIds:
+    - rid: 7454503374429356056
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1742057731222

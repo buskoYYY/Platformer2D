@@ -18,4 +18,6 @@ EditorBuildSettings:
     path: Assets/HomeWork/Scenes/Level3.unity
     guid: 395d61fa56ca34f46b11c49ff310afa8
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 56522286142e8b6448411b68dc223597, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 5503c34cb9169334eac413076b7fa018, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: fb5ecf8580b0d2d4bb35b67a40792af8, type: 2}

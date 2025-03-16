@@ -844,6 +844,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3186843014215115767, guid: d7aba921f4086234a89b23acfc6bbda9, type: 3}
+      propertyPath: _switchers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3186843014215115767, guid: d7aba921f4086234a89b23acfc6bbda9, type: 3}
       propertyPath: _switchers.Array.data[0]
       value: 
       objectReference: {fileID: 2046575159}
