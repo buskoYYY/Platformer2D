@@ -35,11 +35,11 @@ PrefabInstance:
     - target: {fileID: 2674993437097847720, guid: 572980f86027e784eb2bdcdca036877c, type: 3}
       propertyPath: _musicSource
       value: 
-      objectReference: {fileID: 4423127664332976305}
+      objectReference: {fileID: 3778004385658385289}
     - target: {fileID: 2674993437097847720, guid: 572980f86027e784eb2bdcdca036877c, type: 3}
       propertyPath: _soundSource
       value: 
-      objectReference: {fileID: 3778004385658385289}
+      objectReference: {fileID: 4423127664332976305}
     - target: {fileID: 2674993437097847720, guid: 572980f86027e784eb2bdcdca036877c, type: 3}
       propertyPath: _randomPitchSoundSource
       value: 

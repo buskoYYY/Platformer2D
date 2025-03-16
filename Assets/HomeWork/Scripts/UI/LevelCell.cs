@@ -20,7 +20,7 @@ public class LevelCell : MonoBehaviour
         _openButton.onClick.AddListener(Select);
         _numberText.text = number.ToString();
         _openButton.interactable = isUnlocked;
-        _lockIcon.gameObject.SetActive(isUnlocked ==false);
+        _lockIcon.gameObject.SetActive(!isUnlocked);
     }
     private void Select()
     {

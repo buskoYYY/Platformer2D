@@ -35,6 +35,10 @@ MonoBehaviour:
     m_Key: MoveDown
     m_Metadata:
       m_Items: []
+  - m_Id: 201920909819904
+    m_Key: F
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

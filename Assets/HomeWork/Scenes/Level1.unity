@@ -255,17 +255,13 @@ PrefabInstance:
       propertyPath: _listener
       value: 
       objectReference: {fileID: 816822793}
-    - target: {fileID: 2159635109967850860, guid: 1f0d55c03764c164d9aa45e32b71ddd6, type: 3}
-      propertyPath: _musicSource
-      value: 
-      objectReference: {fileID: 2130905585}
-    - target: {fileID: 2159635109967850860, guid: 1f0d55c03764c164d9aa45e32b71ddd6, type: 3}
-      propertyPath: _soundSource
-      value: 
-      objectReference: {fileID: 2130905584}
     - target: {fileID: 4364982221103137328, guid: 1f0d55c03764c164d9aa45e32b71ddd6, type: 3}
       propertyPath: m_Name
       value: Audio Manager Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423127664332976305, guid: 1f0d55c03764c164d9aa45e32b71ddd6, type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6646651919479940225, guid: 1f0d55c03764c164d9aa45e32b71ddd6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4398,16 +4394,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &2130905584 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4423127664332976305, guid: 1f0d55c03764c164d9aa45e32b71ddd6, type: 3}
-  m_PrefabInstance: {fileID: 148002753}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &2130905585 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3778004385658385289, guid: 1f0d55c03764c164d9aa45e32b71ddd6, type: 3}
-  m_PrefabInstance: {fileID: 148002753}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2130905586 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2159635109967850860, guid: 1f0d55c03764c164d9aa45e32b71ddd6, type: 3}
@@ -5020,101 +5006,13 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1502328767640306667, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 2466982841254849828, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 2130905586}
-    - target: {fileID: 3870324701267921677, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 3870324701267921677, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.223
-      objectReference: {fileID: 0}
     - target: {fileID: 3875737520586035040, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4948904822163132594, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618403799601736976, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618403799601736976, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618403799601736976, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618403799601736976, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618403799601736976, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 390.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618403799601736976, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 383.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618403799601736976, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.0965097
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618403799601736976, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4.598397
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618403799601736976, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618403799601736976, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -22
-      objectReference: {fileID: 0}
-    - target: {fileID: 6689932583623424251, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 6689932583623424251, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 6689932583623424251, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 777
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294647538970821212, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_Size.x
-      value: 0.9915341
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294647538970821212, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_Size.y
-      value: 0.9988418
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294647538970821212, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.01826924
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294647538970821212, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.03288445
-      objectReference: {fileID: 0}
-    - target: {fileID: 7307058232621138051, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8366288304982679646, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
       propertyPath: _inventoryView

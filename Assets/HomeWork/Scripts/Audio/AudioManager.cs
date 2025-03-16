@@ -43,13 +43,13 @@ public class AudioManager : MonoBehaviour
     }
     public void RefreshSettings()
     {
-        _musicSource.mute = PlayerPrefs.GetInt(ConstantData.SaveData.MUSIC_MUTE_KEY, ConstantData.SaveData.IS_ON_VALUE) != ConstantData.SaveData.IS_ON_VALUE;
-        _soundSource.mute = PlayerPrefs.GetInt(ConstantData.SaveData.SOUND_MUTE_KEY, ConstantData.SaveData.IS_ON_VALUE) != ConstantData.SaveData.IS_ON_VALUE;
-        _randomPitchSoundSource.mute = PlayerPrefs.GetInt(ConstantData.SaveData.SOUND_MUTE_KEY, ConstantData.SaveData.IS_ON_VALUE) != ConstantData.SaveData.IS_ON_VALUE;
+        _musicSource.mute = SaveService.MusicIsOn == false;
+        _soundSource.mute = SaveService.SoundIsOn == false;
+        _randomPitchSoundSource.mute = SaveService.SoundIsOn == false;
 
-        _musicSource.volume = PlayerPrefs.GetFloat(ConstantData.SaveData.MUSIC_KEY, ConstantData.SaveData.DEFAULT_VOLUME);
-        _soundSource.volume = PlayerPrefs.GetFloat(ConstantData.SaveData.SOUND_KEY, ConstantData.SaveData.DEFAULT_VOLUME);
-        _randomPitchSoundSource.volume = PlayerPrefs.GetFloat(ConstantData.SaveData.SOUND_KEY, ConstantData.SaveData.DEFAULT_VOLUME);
+        _musicSource.volume = SaveService.MusicVolume;
+        _soundSource.volume = SaveService.SoundVolume;
+        _randomPitchSoundSource.volume = SaveService.SoundVolume;
     }
 }
 

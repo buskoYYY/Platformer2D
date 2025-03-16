@@ -1503,6 +1503,55 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &639087733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 639087735}
+  - component: {fileID: 639087734}
+  m_Layer: 0
+  m_Name: EntryPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &639087734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639087733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c58ef3f795f4e345ba94d0eb2752d0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneNames:
+  - Level1
+  - Level2
+  - Level3
+  _selectLevelWindow: {fileID: 1997529413}
+--- !u!4 &639087735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639087733}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &645243610 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6612273324249632281, guid: 2817b36a056dd6a4ba8607d7f455efaa, type: 3}
@@ -4235,10 +4284,6 @@ MonoBehaviour:
   _cellPrefab: {fileID: 8320213611692119694, guid: 18cb6d72902371c448a21d6aa71bcf67, type: 3}
   _container: {fileID: 1528303673}
   _backButton: {fileID: 1121090828}
-  _sceneNames:
-  - Level1
-  - Level2
-  - Level3
 --- !u!1 &2109766060
 GameObject:
   m_ObjectHideFlags: 0
@@ -4473,7 +4518,7 @@ PrefabInstance:
     - target: {fileID: 397996571874735733, guid: 572980f86027e784eb2bdcdca036877c, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 7db5aeebd95c4df4095e5e5c16be6e00, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 903470988856309069, guid: 572980f86027e784eb2bdcdca036877c, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -4671,3 +4716,4 @@ SceneRoots:
   - {fileID: 1342794154}
   - {fileID: 352018009}
   - {fileID: 6418848509495323315}
+  - {fileID: 639087735}

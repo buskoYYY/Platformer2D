@@ -30,40 +30,37 @@ public class SettingsWindow : MonoBehaviour
     }
     private void ChangeVolumeMusic(float value)
     {
-        ChangeVolume(value, ConstantData.SaveData.MUSIC_KEY);
-    }    
+        SaveService.SetMusicVolume(value);
+        _audioManager.RefreshSettings();
+    }
     private void ChangeVolumeSound(float value)
     {
-        ChangeVolume(value, ConstantData.SaveData.SOUND_KEY);
-    }
-    private void ChangeVolume(float value, string key)
-    {
-        PlayerPrefs.SetFloat(key, value);
+        SaveService.SetSoundVolume(value);
         _audioManager.RefreshSettings();
     }
+
     private void SwitchMuteMusic(bool isOn)
     {
-        SwitchMute(isOn, ConstantData.SaveData.MUSIC_MUTE_KEY);
-    }    
-    private void SwitchMuteSound(bool isOn)
-    {
-        SwitchMute(isOn, ConstantData.SaveData.SOUND_MUTE_KEY);
-    }    
-    private void SwitchMute(bool isOn, string key)
-    {
-        PlayerPrefs.SetInt(key, isOn ? ConstantData.SaveData.IS_ON_VALUE : ConstantData.SaveData.IS_OF_VALUE);
+        SaveService.SetMusicIsOn(isOn);
         _audioManager.RefreshSettings();
     }
+    private void SwitchMuteSound(bool isOn)
+    {
+        SaveService.SetSoundIsOn(isOn);
+        _audioManager.RefreshSettings();
+    }
+
     public void Open()
     {
         gameObject.SetActive(true);
-        _musicSwitcher.isOn = PlayerPrefs.GetInt(ConstantData.SaveData.MUSIC_MUTE_KEY, ConstantData.SaveData.IS_ON_VALUE) == ConstantData.SaveData.IS_ON_VALUE;
-        _soundSwitcher.isOn = PlayerPrefs.GetInt(ConstantData.SaveData.SOUND_MUTE_KEY, ConstantData.SaveData.IS_ON_VALUE) == ConstantData.SaveData.IS_ON_VALUE;
-
-        _musicVolume.value = PlayerPrefs.GetFloat(ConstantData.SaveData.MUSIC_KEY, ConstantData.SaveData.DEFAULT_VOLUME);
-        _soundVolume.value = PlayerPrefs.GetFloat(ConstantData.SaveData.SOUND_KEY, ConstantData.SaveData.DEFAULT_VOLUME);
+        _musicSwitcher.isOn = SaveService.MusicIsOn;
+        _soundSwitcher.isOn = SaveService.SoundIsOn;
+        _musicVolume.value = SaveService.MusicVolume;
+        _soundVolume.value = SaveService.SoundVolume;
     }
-    public void Close() {
+    public void Close()
+    {
         gameObject.SetActive(false);
+        SaveService.Save();
     }
 }

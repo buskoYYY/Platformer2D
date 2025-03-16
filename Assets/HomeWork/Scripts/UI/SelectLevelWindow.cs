@@ -1,18 +1,14 @@
-using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SelectLevelWindow : MonoBehaviour
 {
-    private const string LEVEL_SCENE_SUBNAME = "Level";
-
     [SerializeField] private LevelCell _cellPrefab;
     [SerializeField] private RectTransform _container;
     [SerializeField] private Button _backButton;
-    [SerializeField] private List<string> _sceneNames = new();
+    private List<string> _sceneNames = new();
 
     private List<LevelCell> _levelCells = new();
 
@@ -26,23 +22,10 @@ public class SelectLevelWindow : MonoBehaviour
         _backButton.onClick.RemoveListener(Close);
         ClearLevels();
     }
-    private void Reset()
+
+    public void SetLevelsNames(List<string> sceneNames)
     {
-        int extentionLeanth = 6;
-        _sceneNames.Clear();
-
-        foreach (EditorBuildSettingsScene scene in EditorBuildSettings.scenes)
-        {
-            if (scene.enabled)
-            {
-                string name = scene.path.Substring(scene.path.LastIndexOf('/') + 1);
-
-                if (name.StartsWith(LEVEL_SCENE_SUBNAME))
-                {
-                    _sceneNames.Add(name.Substring(0, name.Length - extentionLeanth));
-                }
-            }
-        }
+        _sceneNames = sceneNames;
     }
     private void FillLevels()
     {
@@ -51,8 +34,9 @@ public class SelectLevelWindow : MonoBehaviour
 
         foreach (string sceneName in _sceneNames)
         {
+            Debug.Log(sceneName);
             cell = Instantiate(_cellPrefab, _container);
-            cell.Initialize(sceneName, levelNumber, true);
+            cell.Initialize(sceneName, levelNumber, SaveService.IsUnlockedLevel(sceneName));
             cell.SceneSelected += OnSceneSelected;
             _levelCells.Add(cell);
             levelNumber++;
