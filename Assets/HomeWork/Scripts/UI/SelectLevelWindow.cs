@@ -34,7 +34,6 @@ public class SelectLevelWindow : MonoBehaviour
 
         foreach (string sceneName in _sceneNames)
         {
-            Debug.Log(sceneName);
             cell = Instantiate(_cellPrefab, _container);
             cell.Initialize(sceneName, levelNumber, SaveService.IsUnlockedLevel(sceneName));
             cell.SceneSelected += OnSceneSelected;

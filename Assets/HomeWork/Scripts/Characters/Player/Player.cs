@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(InputReader), typeof(Mover), typeof(PlayerAnimator))]
-[RequireComponent(typeof(CollisionHandler), typeof(PlayerAttacker), typeof(PlayerSounds))]
+[RequireComponent(typeof(PlayerSounds), typeof(Mover), typeof(PlayerAnimator))]
+[RequireComponent(typeof(CollisionHandler), typeof(PlayerAttacker))]
 public class Player : MonoBehaviour
 {
     public event Action Died;
@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private HealthBar _healthBar;
     [SerializeField] private Canvas _interactableCanvas;
     [SerializeField] private InventoryView _inventoryView;
-    private InputReader _inputReader;
+    private IInputReader _inputReader;
     private Mover _playerMotion;
     private PlayerAnimator _playerAnimator;
     private PlayerAttacker _playerAttacker;
@@ -34,7 +34,6 @@ public class Player : MonoBehaviour
         _inventory = new Inventory();
         _healthBar.Initialize(_health);
 
-        _inputReader = GetComponent<InputReader>();
         _playerMotion = GetComponent<Mover>();
         _playerAnimator = GetComponent<PlayerAnimator>();
         _collisionHandler = GetComponent<CollisionHandler>();
@@ -67,12 +66,14 @@ public class Player : MonoBehaviour
     {
         if (TimeManager.IsPaused) return;
 
-        _playerMotion.Move(_inputReader.GetMoveInput(), _audio);
+        _playerMotion.Move(_inputReader.Direction, _audio);
 
-        _playerAnimator.SetMoveAnimation(_inputReader.GetMoveInput());
-        if (_playerAttacker.Attack(_inputReader, _playerAnimator))
+        _playerAnimator.SetMoveAnimation(_inputReader.Direction);
+        if (_inputReader.GetAttack())
         {
-            _audio.PlayAttackSound();
+            Debug.Log("Attack");
+            if (_playerAttacker.Attack(_playerAnimator))
+                _audio.PlayAttackSound();
         }
 
         if (_inputReader.GetIsInteract() && _interactable != null)
@@ -99,6 +100,11 @@ public class Player : MonoBehaviour
     {
         _inventoryView.Add(item);
         item.Collect();
+    }
+
+    public void Initialize(IInputReader inputReader)
+    {
+        _inputReader = inputReader;
     }
 
     public void ApplyDamage(int damage)

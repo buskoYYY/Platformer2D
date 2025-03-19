@@ -126,6 +126,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1601323398308906580}
     m_Modifications:
+    - target: {fileID: 696048083212542931, guid: 2817b36a056dd6a4ba8607d7f455efaa, type: 3}
+      propertyPath: m_fontSize
+      value: 95.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 696048083212542931, guid: 2817b36a056dd6a4ba8607d7f455efaa, type: 3}
+      propertyPath: m_margin.x
+      value: 27.837769
+      objectReference: {fileID: 0}
+    - target: {fileID: 696048083212542931, guid: 2817b36a056dd6a4ba8607d7f455efaa, type: 3}
+      propertyPath: m_margin.z
+      value: 19.272339
+      objectReference: {fileID: 0}
+    - target: {fileID: 696048083212542931, guid: 2817b36a056dd6a4ba8607d7f455efaa, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1608119489542968311, guid: 2817b36a056dd6a4ba8607d7f455efaa, type: 3}
       propertyPath: m_Name
       value: PausePanel

@@ -1,7 +1,12 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
+using YG;
 
 public class EntryPoint : MonoBehaviour
 {
@@ -13,7 +18,9 @@ public class EntryPoint : MonoBehaviour
     {
         _selectLevelWindow.SetLevelsNames(_sceneNames);
         SaveService.Initialize(_sceneNames);
+        SetLanguage();
     }
+
     private void Reset()
     {
         int extentionLeanth = 6;
@@ -32,58 +39,31 @@ public class EntryPoint : MonoBehaviour
             }
         }
     }
-}
-
-public static class SaveService
-{
-    private const string SAVE_TITLE = "Save";
-    private static SaveData _saveData;
-    private static List<string> _sceneNames = new();
-
-    public static bool MusicIsOn => _saveData.MusicIsOn;
-    public static bool SoundIsOn => _saveData.SoundIsOn;
-    public static float MusicVolume => _saveData.MusicVolume;
-    public static float SoundVolume => _saveData.SoundVolume;
-    public static List<string> ComplitedLevels => _saveData.UnlockedLevels;
-
-    public static void Initialize(List<string> sceneNames)
+    private void SetLanguage()
     {
-        _sceneNames = sceneNames;
-        _saveData = JsonUtility.FromJson<SaveData>(PlayerPrefs.GetString(SAVE_TITLE)) ?? new SaveData();
-    }
-    public static void Save()
-    {
-        PlayerPrefs.SetString(SAVE_TITLE,JsonUtility.ToJson(_saveData));
+        try
+        {
+            StartCoroutine(LoadLocale(YandexGame.EnvironmentData.language));
+        }
+        catch(Exception) { }
     }
 
-    public static void SetMusicIsOn(bool isOn) => _saveData.MusicIsOn = isOn;
-    public static void SetSoundIsOn(bool isOn) => _saveData.SoundIsOn = isOn;
-    public static void SetMusicVolume(float value) => _saveData.MusicVolume = value;
-    public static void SetSoundVolume(float value) => _saveData.SoundVolume = value;
-
-    public static void UnlockNetLevel(string currentSceneName)
+    private IEnumerator LoadLocale(string languageIdentifier)
     {
-        int sceneIndex = _sceneNames.FindIndex(i => i == currentSceneName);
+        yield return LocalizationSettings.InitializationOperation;
 
-        if (sceneIndex == _sceneNames.Count - 1)
-            return;
+        LocaleIdentifier localeCode = new LocaleIdentifier(languageIdentifier);
 
-        string sceneName = _sceneNames[sceneIndex + 1];
+        for (int i = 0; i < LocalizationSettings.AvailableLocales.Locales.Count; i++)
+        {
+            Locale locale = LocalizationSettings.AvailableLocales.Locales[i];
 
-        if(_saveData.UnlockedLevels.Contains(sceneName) == false)
-            _saveData.UnlockedLevels.Add(sceneName);
-
-        Save();
-    }
-    public static bool IsUnlockedLevel(string sceneName) => _saveData.UnlockedLevels.Contains(sceneName);
-
-    [Serializable]
-    private class SaveData
-    {
-        public bool MusicIsOn = true;
-        public bool SoundIsOn = true;
-        public float MusicVolume = ConstantData.SaveData.DEFAULT_VOLUME;
-        public float SoundVolume = ConstantData.SaveData.DEFAULT_VOLUME;
-        public List<string> UnlockedLevels = new() { "Level1" };
+            if(locale.Identifier == localeCode)
+            {
+                LocalizationSettings.SelectedLocale = locale;
+                yield break;
+            }
+        }
     }
 }
+

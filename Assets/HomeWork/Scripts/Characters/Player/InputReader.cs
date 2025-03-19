@@ -2,12 +2,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class InputReader : MonoBehaviour
+public class InputReader : MonoBehaviour, IInputReader
 {
     [Header("Settings")]
     private Vector2 _moveInput;
     private bool _isInteract;
     private bool _isAttack;
+
+    public Vector2 Direction => _moveInput;
 
     private void Update()
     {
@@ -37,7 +39,7 @@ public class InputReader : MonoBehaviour
     
     void OnFire(InputValue value)
     {
-        if (EventSystem.current.IsPointerOverGameObject()) return;
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
         if (value.isPressed)
         {
             _isAttack = true;
@@ -50,3 +52,4 @@ public class InputReader : MonoBehaviour
         return lockalValue;
     }
 }
+
