@@ -26,28 +26,30 @@ public class MessageBox : MonoBehaviour
         }
         _coroutine =  StartCoroutine(TempShowing());
     }
+
     private IEnumerator TempShowing()
     {
         float time = 0;
+
         while (time < _showingTime)
         {
             time += Time.deltaTime;
             _canvasGroup.alpha = Mathf.Lerp(0, 1, time / _showingTime);
             yield return null;
         }
+
         _canvasGroup.alpha = 1;
-
         yield return new WaitForSeconds(_showingTime);
-
         time = 0;
+
         while (time < _hidingTime)
         {
             time += Time.deltaTime;
             _canvasGroup.alpha = Mathf.Lerp(1, 0, time / _showingTime);
             yield return null;
         }
-        _canvasGroup.alpha = 0;
 
+        _canvasGroup.alpha = 0;
         _coroutine = null;
     }
 }

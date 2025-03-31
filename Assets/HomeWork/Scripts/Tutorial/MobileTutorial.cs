@@ -15,10 +15,12 @@ public class MobileTutorial : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
     private void OnEnable()
     {
         _joystick.Down += OnDown;
     }
+
     private void OnDisable()
     {
         _joystick.Down += OnDown;

@@ -6,11 +6,13 @@ public class EnemyAnimation : MonoBehaviour
     public void SetMoveAnimation(Vector2 targetPos, Vector2 enemyPos)
     {
         Vector2 direction = targetPos - enemyPos;
+
         if (direction == Vector2.zero)
         {
             SetIdleAnimation(false);
             return;
         }
+
         SetIdleAnimation(true);
         _animator.SetFloat(ConstantData.AnimatorParametr.MoveX, direction.x);
         _animator.SetFloat(ConstantData.AnimatorParametr.MoveY, direction.y);
@@ -25,5 +27,4 @@ public class EnemyAnimation : MonoBehaviour
     {
         _animator.SetTrigger(ConstantData.AnimatorParametr.Attack);
     }
-
 }

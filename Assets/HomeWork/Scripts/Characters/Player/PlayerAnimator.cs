@@ -10,6 +10,7 @@ public class PlayerAnimator : MonoBehaviour
             _animator.SetBool(ConstantData.AnimatorParametr.IsMoving, false);
             return;
         }
+
         _animator.SetBool(ConstantData.AnimatorParametr.IsMoving, true);
         _animator.SetFloat(ConstantData.AnimatorParametr.MoveX, direction.x);
         _animator.SetFloat(ConstantData.AnimatorParametr.MoveY, direction.y);

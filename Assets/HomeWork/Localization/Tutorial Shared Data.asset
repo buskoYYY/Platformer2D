@@ -39,6 +39,10 @@ MonoBehaviour:
     m_Key: F
     m_Metadata:
       m_Items: []
+  - m_Id: 3552432212295680
+    m_Key: SpeedUp
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

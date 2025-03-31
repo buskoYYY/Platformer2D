@@ -1,20 +1,16 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerSounds), typeof(Mover), typeof(PlayerAnimator))]
+[RequireComponent(typeof(PlayerSounds), typeof(PlayerMover), typeof(PlayerAnimator))]
 [RequireComponent(typeof(CollisionHandler), typeof(PlayerAttacker))]
 public class Player : MonoBehaviour
 {
-    public event Action Died;
-    public static event Action<Vector2> StartDeathEffects;
-    public static event Action<Vector2, Quaternion> PlayerHitEffect;
-
-    [Header("Elements")]
     [SerializeField] private HealthBar _healthBar;
     [SerializeField] private Canvas _interactableCanvas;
     [SerializeField] private InventoryView _inventoryView;
-    private IInputReader _inputReader;
-    private Mover _playerMotion;
+    [SerializeField] private int _maxHealth;
+
+    private PlayerMover _playerMotion;
     private PlayerAnimator _playerAnimator;
     private PlayerAttacker _playerAttacker;
     private CollisionHandler _collisionHandler;
@@ -22,11 +18,12 @@ public class Player : MonoBehaviour
     private Health _health;
     private Inventory _inventory;
 
-    [Header("Interface")]
-    private IInteractable _interactable;
+    public event Action Died;
+    public event Action<Vector2> DeathEffectsCreated;
+    public event Action<Vector2, Quaternion> HitEffectsCreated;
 
-    [Header("Settings")]
-    [SerializeField] private int _maxHealth;
+    private IInteractable _interactable;
+    private IInputReader _inputReader;
 
     private void Awake()
     {
@@ -34,7 +31,7 @@ public class Player : MonoBehaviour
         _inventory = new Inventory();
         _healthBar.Initialize(_health);
 
-        _playerMotion = GetComponent<Mover>();
+        _playerMotion = GetComponent<PlayerMover>();
         _playerAnimator = GetComponent<PlayerAnimator>();
         _collisionHandler = GetComponent<CollisionHandler>();
         _playerAttacker = GetComponent<PlayerAttacker>();
@@ -43,7 +40,6 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        Health.PlayerDied += Ondied;
         _collisionHandler.InteractacleFounded += OnInteractableFounded;
         _collisionHandler.MedKitFounded += OnMedKitFounded;
         _collisionHandler.KeyFounded += OnKeyFounded;
@@ -54,7 +50,6 @@ public class Player : MonoBehaviour
 
     private void OnDisable()
     {
-        Health.PlayerDied -= Ondied;
         _collisionHandler.InteractacleFounded -= OnInteractableFounded;
         _collisionHandler.MedKitFounded -= OnMedKitFounded;
         _collisionHandler.KeyFounded -= OnKeyFounded;
@@ -62,20 +57,32 @@ public class Player : MonoBehaviour
         _inventory.ItemAdded -= AddItemToInventory;
         _inventory.ItemRemoved -= _inventoryView.Remove;
     }
-    void FixedUpdate()
+
+    private void FixedUpdate()
     {
-        if (TimeManager.IsPaused) return;
+        if (TimeManager.IsPaused)
+            return;
 
         _playerMotion.Move(_inputReader.Direction, _audio);
-
         _playerAnimator.SetMoveAnimation(_inputReader.Direction);
+
         if (_inputReader.GetAttack())
         {
-            Debug.Log("Attack");
             if (_playerAttacker.Attack(_playerAnimator))
+            {
                 _audio.PlayAttackSound();
+            }
         }
 
+        if(_inputReader.GetSpeedUp())
+        {
+            _playerMotion.CheckAcceleration(true);
+        }
+        else
+        {
+            _playerMotion.CheckAcceleration(false);
+        }
+        
         if (_inputReader.GetIsInteract() && _interactable != null)
         {
             if (_interactable.IsLock)
@@ -94,12 +101,6 @@ public class Player : MonoBehaviour
                 _interactable.Interact();
             }
         }
-
-    }
-    private void AddItemToInventory(IItem item)
-    {
-        _inventoryView.Add(item);
-        item.Collect();
     }
 
     public void Initialize(IInputReader inputReader)
@@ -110,21 +111,29 @@ public class Player : MonoBehaviour
     public void ApplyDamage(int damage)
     {
         _health.ApplyDamage(damage);
+
         if (_health.Value > 0)
         {
             _audio.PlayHitSound();
-            PlayerHitEffect?.Invoke(transform.position, transform.rotation);
+            HitEffectsCreated?.Invoke(transform.position, transform.rotation);
         }
         else
         {
-            StartDeathEffects?.Invoke(transform.position);
+            DeathEffectsCreated?.Invoke(transform.position);
             _audio.PlayDeathSound();
             Died?.Invoke();
         }
     }
+
     public void Heal(int value)
     {
         _health.Heal(value);
+    }
+
+    private void AddItemToInventory(IItem item)
+    {
+        _inventoryView.Add(item);
+        item.Collect();
     }
 
     private void OnInteractableFounded(IInteractable interactable)
@@ -132,6 +141,7 @@ public class Player : MonoBehaviour
         _interactable = interactable;
         _interactableCanvas.gameObject.SetActive(interactable != null);
     }
+
     private void OnMedKitFounded(MedKit medKit)
     {
         if (_health.Value < _health.MaxValue)
@@ -140,12 +150,9 @@ public class Player : MonoBehaviour
             medKit.Collect();
         }
     }
+
     private void OnKeyFounded(Key key)
     {
         _inventory.Add(key);
-    }
-    private void Ondied()
-    {
-        Died?.Invoke();
     }
 }

@@ -1,29 +1,21 @@
 using UnityEngine;
 
-public class AttackPlayerDecision : StateMachineDecision
+public class DecisionAttackPlayer : StateMachineDecision
 {
     [SerializeField] LayerMask _playerLayer;
     [SerializeField] private float _radius;
     public bool IsAttackState {  get; private set; }
     public override bool Decide()
     {
-        return AttackState();
+        return SetAttackState();
     }
 
-    private bool AttackState()
+    private bool SetAttackState()
     {
         Collider2D hit = Physics2D.OverlapCircle(transform.position, _radius, _playerLayer);
 
-        if (hit != null && hit.GetComponent<Player>())
-        {
-            IsAttackState = true;
-            return true;
-        }
-        else
-        {
-            IsAttackState = false;
-            return false;
-        }
+        IsAttackState = hit != null && hit.GetComponent<Player>();
+        return IsAttackState;
     }
 
     private void OnDrawGizmos()

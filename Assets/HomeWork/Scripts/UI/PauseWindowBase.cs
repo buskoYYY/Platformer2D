@@ -8,6 +8,7 @@ public abstract class PauseWindowBase : MonoBehaviour
 
     [SerializeField] private Button _exitButton;
     [SerializeField] private Button _restartButton;
+
     protected virtual void OnEnable()
     {
         TimeManager.Pause();
@@ -15,6 +16,7 @@ public abstract class PauseWindowBase : MonoBehaviour
         _restartButton.onClick.AddListener(Restart);
         _exitButton.onClick.AddListener(Exit);
     }
+
     protected virtual void OnDisable()
     {
         TimeManager.Run();
@@ -22,6 +24,7 @@ public abstract class PauseWindowBase : MonoBehaviour
         _restartButton.onClick.RemoveListener(Restart);
         _exitButton.onClick.RemoveListener(Exit);
     }
+
     protected void LoadScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
@@ -34,5 +37,4 @@ public abstract class PauseWindowBase : MonoBehaviour
     {
         LoadScene(MAIN_MENU_SCENE_INDEX);
     }
-
 }

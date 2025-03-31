@@ -4,7 +4,6 @@ using UnityEngine;
 public class InventoryView : MonoBehaviour
 {
     [SerializeField] private InventoryItemView _itemPrefab;
-
     private List<InventoryItemView> _items = new();
 
     public void Add(IItem item)
@@ -13,6 +12,7 @@ public class InventoryView : MonoBehaviour
         itemView.Initialize(item);
         _items.Add(itemView);
     }
+
     public void Remove(IItem item)
     {
         foreach (InventoryItemView itemView in _items)

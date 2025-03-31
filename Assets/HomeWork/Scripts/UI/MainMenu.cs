@@ -20,12 +20,14 @@ public class MainMenu : MonoBehaviour
     {
         ShowMenu();
     }
+
     private void OnEnable()
     {
         _startButton.onClick.AddListener(LoadScene);
         _settingsButton.onClick.AddListener(_settingsWindow.Open);
         _selectLevelButton.onClick.AddListener(_selectLevelWindow.Open);
     }
+
     private void OnDisable()
     {
         _startButton.onClick.RemoveListener(LoadScene);
@@ -38,6 +40,7 @@ public class MainMenu : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
+
     private void ShowMenu()
     {
         try
@@ -46,6 +49,7 @@ public class MainMenu : MonoBehaviour
         }
         catch(Exception) { }
     }
+
     private IEnumerator Showing()
     {
         yield return LocalizationSettings.InitializationOperation;
@@ -60,6 +64,7 @@ public class MainMenu : MonoBehaviour
             _menuPanel.alpha = Mathf.Lerp(startAlpha, finishAlpha, time/_showTime);
             yield return null;
         }
+
         _menuPanel.alpha = finishAlpha;
     }
 }

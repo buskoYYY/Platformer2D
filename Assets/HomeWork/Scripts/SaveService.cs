@@ -1,10 +1,10 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public static class SaveService 
 {
     private const string SAVE_TITLE = "Save";
+
     private static SaveData _saveData;
     private static List<string> _sceneNames = new();
 
@@ -19,14 +19,18 @@ public static class SaveService
         _sceneNames = sceneNames;
         _saveData = JsonUtility.FromJson<SaveData>(PlayerPrefs.GetString(SAVE_TITLE)) ?? new SaveData();
     }
+
     public static void Save()
     {
         PlayerPrefs.SetString(SAVE_TITLE, JsonUtility.ToJson(_saveData));
     }
 
     public static void SetMusicIsOn(bool isOn) => _saveData.MusicIsOn = isOn;
+
     public static void SetSoundIsOn(bool isOn) => _saveData.SoundIsOn = isOn;
+
     public static void SetMusicVolume(float value) => _saveData.MusicVolume = value;
+
     public static void SetSoundVolume(float value) => _saveData.SoundVolume = value;
 
     public static void UnlockNetLevel(string currentSceneName)
@@ -43,15 +47,6 @@ public static class SaveService
 
         Save();
     }
-    public static bool IsUnlockedLevel(string sceneName) => _saveData.UnlockedLevels.Contains(sceneName);
 
-    [Serializable]
-    private class SaveData
-    {
-        public bool MusicIsOn = true;
-        public bool SoundIsOn = true;
-        public float MusicVolume = ConstantData.SaveData.DEFAULT_VOLUME;
-        public float SoundVolume = ConstantData.SaveData.DEFAULT_VOLUME;
-        public List<string> UnlockedLevels = new() { "Level1" };
-    }
+    public static bool IsUnlockedLevel(string sceneName) => _saveData.UnlockedLevels.Contains(sceneName);
 }

@@ -9,18 +9,19 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4916056555353606606}
-  - component: {fileID: 6708576382926620595}
   - component: {fileID: 3667747851922883030}
   - component: {fileID: 1093284302744189198}
   - component: {fileID: 7376112637263402032}
-  - component: {fileID: 1268604990209469744}
   - component: {fileID: 7408721058955764530}
   - component: {fileID: 698921658718842144}
   - component: {fileID: 5185998205106547738}
   - component: {fileID: 332730352831745952}
   - component: {fileID: 3716775816383842621}
-  - component: {fileID: 5871541633715062337}
   - component: {fileID: 5160487952034369052}
+  - component: {fileID: 8215232321134153173}
+  - component: {fileID: 1122894630902695471}
+  - component: {fileID: 4198049860954476}
+  - component: {fileID: 9109018993888765175}
   m_Layer: 6
   m_Name: Samurai
   m_TagString: Enemy
@@ -36,7 +37,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263589183710203909}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.81, y: -0.064, z: -0.0761044}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -45,22 +46,6 @@ Transform:
   - {fileID: 2586033584921280304}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6708576382926620595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263589183710203909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 763aac6ca391dd54eb66dce852099af8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _waitTimeToMove: 1
-  _normalSpeed: 0
-  _extraSpeed: 0
-  _enemySpeed: 0.5
 --- !u!114 &3667747851922883030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,46 +131,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.9314487}
   m_EdgeRadius: 0
---- !u!114 &1268604990209469744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263589183710203909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 750f7d93b2a48f24f8f569e4c8408720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _states:
-  - ID: Patrol
-    Actions:
-    - {fileID: 7408721058955764530}
-    Transitions:
-    - Decision: {fileID: 698921658718842144}
-      TrueState: Chase
-      FalseState: 
-  - ID: Chase
-    Actions:
-    - {fileID: 5185998205106547738}
-    Transitions:
-    - Decision: {fileID: 698921658718842144}
-      TrueState: 
-      FalseState: Patrol
-    - Decision: {fileID: 3716775816383842621}
-      TrueState: Attack
-      FalseState: 
-  - ID: Attack
-    Actions:
-    - {fileID: 332730352831745952}
-    Transitions:
-    - Decision: {fileID: 3716775816383842621}
-      TrueState: 
-      FalseState: Chase
-  _healthBar: {fileID: 2701944468894586248}
-  _initState: Patrol
-  _maxHealth: 5
 --- !u!114 &7408721058955764530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,8 +195,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34bde30e13b7ef04983b1fd65010cd72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animationEvent: {fileID: 7914236879101027816}
   _damage: 1
-  _timeBtwAttacks: 2
+  _delay: 2
+  _eventCooldown: 0.5
 --- !u!114 &3716775816383842621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,21 +215,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _radius: 0.8
---- !u!114 &5871541633715062337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263589183710203909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e5b7c1971b278240b6cbe18f289c855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hitEffect: {fileID: 940060348901422687, guid: b9872d9ebcf288f4b96c7a33d2d0b83e, type: 3}
-  _deathEffect: {fileID: 3465866262153823993, guid: c3057974522ba5f4a88bf97211535e3c, type: 3}
-  _waitToDestroyEffect: 1
 --- !u!114 &5160487952034369052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +234,87 @@ MonoBehaviour:
   _deathSound: {fileID: 8300000, guid: 8b12cec820eab67419080d1abb6879f5, type: 3}
   _lowPitch: 2
   _topPitch: 2
+--- !u!114 &8215232321134153173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263589183710203909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b5bdc0d00616343907ac29c22f9deb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hitEffect: {fileID: 3717935869477163416, guid: b9872d9ebcf288f4b96c7a33d2d0b83e, type: 3}
+  _deathEffect: {fileID: 2602693932374628246, guid: c3057974522ba5f4a88bf97211535e3c, type: 3}
+  _waitToDestroyEffect: 1
+--- !u!114 &1122894630902695471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263589183710203909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5067abcfdf8ae249a764eb858e4338b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemySpeed: 1.2
+  _waitTimeToMove: 1
+--- !u!114 &4198049860954476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263589183710203909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77649a0b95ba74a41a6ae1920fd598a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _states:
+  - ID: Patrol
+    Actions:
+    - {fileID: 7408721058955764530}
+    Transitions:
+    - Decision: {fileID: 698921658718842144}
+      TrueState: Chase
+      FalseState: 
+  - ID: Chase
+    Actions:
+    - {fileID: 5185998205106547738}
+    Transitions:
+    - Decision: {fileID: 698921658718842144}
+      TrueState: 
+      FalseState: Patrol
+    - Decision: {fileID: 3716775816383842621}
+      TrueState: Attack
+      FalseState: 
+  - ID: Attack
+    Actions:
+    - {fileID: 332730352831745952}
+    Transitions:
+    - Decision: {fileID: 3716775816383842621}
+      TrueState: 
+      FalseState: Chase
+  _initState: Patrol
+--- !u!114 &9109018993888765175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263589183710203909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6c2798af9a28c645a62a250a35ab840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthBar: {fileID: 2701944468894586248}
+  _maxHealth: 5
 --- !u!1 &8738973283968470326
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06189048a3b54f4e849910a7ae4e978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventCooldown: 0.5
 --- !u!1001 &5027256305376424530
 PrefabInstance:
   m_ObjectHideFlags: 0

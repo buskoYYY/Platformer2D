@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
@@ -11,6 +10,7 @@ using YG;
 public class EntryPoint : MonoBehaviour
 {
     private const string LEVEL_SCENE_SUBNAME = "Level";
+
     [SerializeField] private List<string> _sceneNames = new();
     [SerializeField] private SelectLevelWindow _selectLevelWindow;
 
@@ -21,6 +21,7 @@ public class EntryPoint : MonoBehaviour
         SetLanguage();
     }
 
+#if UNITY_EDITOR
     private void Reset()
     {
         int extentionLeanth = 6;
@@ -33,12 +34,11 @@ public class EntryPoint : MonoBehaviour
                 string name = scene.path.Substring(scene.path.LastIndexOf('/') + 1);
 
                 if (name.StartsWith(LEVEL_SCENE_SUBNAME))
-                {
                     _sceneNames.Add(name.Substring(0, name.Length - extentionLeanth));
-                }
             }
         }
     }
+#endif
     private void SetLanguage()
     {
         try

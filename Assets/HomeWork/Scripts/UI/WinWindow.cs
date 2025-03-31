@@ -6,6 +6,7 @@ public class WinWindow : PauseWindowBase
 {
     [SerializeField] private Button _nextButton;
     private int _nextSceneIndex;
+
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -14,6 +15,7 @@ public class WinWindow : PauseWindowBase
         _nextButton.gameObject.SetActive(SceneManager.sceneCountInBuildSettings > _nextSceneIndex);
         _nextButton.onClick.AddListener(LoadNextLevel);
     }
+
     protected override void OnDisable()
     {
         base.OnDisable();
@@ -24,6 +26,7 @@ public class WinWindow : PauseWindowBase
     {
         gameObject.SetActive(true);
     }
+
     private void LoadNextLevel()
     {
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;

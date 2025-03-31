@@ -1,41 +1,43 @@
 using System;
+using UnityEngine;
 
 [Serializable]
 
 public class StateMachineState
 {
     public string ID;
-    public StateMachineAction[] Actions;
-    public StateMachineTransition[] Transitions;
+    [SerializeField] private StateMachineAction[] Actions;
+    [SerializeField] private StateMachineTransition[] Transitions;
 
-    public void UpadateState(EnemyBrain enemyBrain)
+    public void UpadateState(StateMachine stateMachine)
     {
         ExecuteActions();
-        ExecuteTransitions(enemyBrain);
+        ExecuteTransitions(stateMachine);
     }
 
     private void ExecuteActions()
     {
-        for(int i = 0; i < Actions.Length; i++)
+        for (int i = 0; i < Actions.Length; i++)
         {
             Actions[i].Act();
         }
     }
 
-    private void ExecuteTransitions(EnemyBrain enemyBrain)
+    private void ExecuteTransitions(StateMachine enemyBrain)
     {
         if (Transitions == null || Transitions.Length <= 0) return;
 
-        for (int i = 0;i < Transitions.Length;i++)
+        foreach (var transition in Transitions)
         {
-            bool value = Transitions[i].Decision.Decide();
-            if(value)
+            bool isStateChange = transition.Decision.Decide();
+
+            if (isStateChange)
             {
-                enemyBrain.ChangeState(Transitions[i].TrueState);
+                enemyBrain.ChangeState(transition.TrueState);
             }
             else
             {
-                enemyBrain.ChangeState(Transitions[i].FalseState);
+                enemyBrain.ChangeState(transition.FalseState);
             }
         }
     }

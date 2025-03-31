@@ -3,15 +3,13 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioListener _listener;
-
     [SerializeField] private AudioSource _musicSource;
     [SerializeField] private AudioSource _soundSource;
     [SerializeField] private AudioSource _randomPitchSoundSource;
     [SerializeField] private AudioClip _defaultMusic;
-
     [SerializeField] private float _sqrMaxDistanceToSource = 100f;
-
     private Transform _listenerTransform;
+
     private void Awake()
     {
         _listenerTransform = _listener.transform;
@@ -32,15 +30,18 @@ public class AudioManager : MonoBehaviour
         _musicSource.clip = clip;
         _musicSource.Play();
     }
+
     public void PlaySound(AudioClip clip)
     {
         _soundSource.PlayOneShot(clip);
     }
+
     public void PlayRandomPitchSound(AudioClip clip, float lowPitch, float topPitch)
     {
         _randomPitchSoundSource.pitch = Random.Range(lowPitch, topPitch);
         _randomPitchSoundSource.PlayOneShot(clip);
     }
+
     public void RefreshSettings()
     {
         _musicSource.mute = SaveService.MusicIsOn == false;
@@ -52,4 +53,3 @@ public class AudioManager : MonoBehaviour
         _randomPitchSoundSource.volume = SaveService.SoundVolume;
     }
 }
-

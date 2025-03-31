@@ -9,7 +9,6 @@ public class SelectLevelWindow : MonoBehaviour
     [SerializeField] private RectTransform _container;
     [SerializeField] private Button _backButton;
     private List<string> _sceneNames = new();
-
     private List<LevelCell> _levelCells = new();
 
     private void OnEnable()
@@ -17,6 +16,7 @@ public class SelectLevelWindow : MonoBehaviour
         _backButton.onClick.AddListener(Close);
         FillLevels();
     }
+
     private void OnDisable()
     {
         _backButton.onClick.RemoveListener(Close);
@@ -27,6 +27,16 @@ public class SelectLevelWindow : MonoBehaviour
     {
         _sceneNames = sceneNames;
     }
+
+    public void Open()
+    {
+        gameObject.SetActive(true);
+    }
+    public void Close()
+    {
+        gameObject.SetActive(false);
+    }
+
     private void FillLevels()
     {
         LevelCell cell;
@@ -41,6 +51,7 @@ public class SelectLevelWindow : MonoBehaviour
             levelNumber++;
         }
     }
+
     private void ClearLevels()
     {
         foreach (LevelCell cell in _levelCells)
@@ -48,20 +59,12 @@ public class SelectLevelWindow : MonoBehaviour
             cell.SceneSelected -= OnSceneSelected;
             Destroy(cell.gameObject);
         }
+
         _levelCells.Clear();
     }
 
     private void OnSceneSelected(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
-    }
-
-    public void Open()
-    {
-        gameObject.SetActive(true);
-    }
-    public void Close()
-    {
-        gameObject.SetActive(false);
     }
 }

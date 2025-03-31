@@ -6,6 +6,7 @@ public class FailWindow : PauseWindowBase
     {
         _player.Died -= OnPlayerDied;
     }
+
     public void Initialize(Player player)
     {
         _player = player;

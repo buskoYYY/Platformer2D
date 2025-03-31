@@ -1,21 +1,16 @@
 using UnityEngine;
 
-public class DetectPlayerDecision : StateMachineDecision
+public class DecisionDetectPlayer : StateMachineDecision
 {
-    [Header("Elements")]
     [SerializeField] LayerMask _playerLayer;
     [SerializeField] LayerMask _playerSwordLayer;
     [SerializeField] LayerMask _backGroundLayer;
- 
-    private EnemyBrain _enemy;
-
-    [Header("Settings")]
     [SerializeField] private float _seeAreaSize;
 
-    private void Start()
-    {
-        _enemy = GetComponent<EnemyBrain>();
-    }
+    private Transform _player;
+
+    public Transform Player {  get { return _player; } }
+
     public override bool Decide()
     {
         return TrySeeTarget();
@@ -23,7 +18,7 @@ public class DetectPlayerDecision : StateMachineDecision
 
     private bool TrySeeTarget()
     {
-        _enemy.Player = null;
+        _player = null;
         Collider2D hit = Physics2D.OverlapCircle(transform.position, _seeAreaSize, _playerLayer);
 
         if (hit != null)
@@ -35,7 +30,7 @@ public class DetectPlayerDecision : StateMachineDecision
 
                 if (hit2D.collider == hit)
                 {
-                    _enemy.Player = hit2D.transform;
+                    _player = hit2D.transform;
                     return true;
                 }
             }

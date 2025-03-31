@@ -33,7 +33,16 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Jump",
+                    "name": "SpeedUp",
+                    "type": "Button",
+                    "id": "9df352d0-63a1-4bbf-9905-206c6a198ae3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
                     "type": "Button",
                     "id": "1d7e8faf-edb3-46d3-a714-fa79d57334a7",
                     "expectedControlType": "Button",
@@ -266,11 +275,22 @@
                 {
                     "name": "",
                     "id": "31a99991-e5fa-41b5-bf3a-793f98a06179",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Jump",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "991d6406-0b89-498c-86eb-7aa6cf38e251",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SpeedUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

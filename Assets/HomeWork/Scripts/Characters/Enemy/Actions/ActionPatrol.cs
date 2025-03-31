@@ -1,16 +1,14 @@
 using UnityEngine;
 
-[RequireComponent (typeof(Mover),typeof(EnemyAnimation), typeof (EnemySound))]
+[RequireComponent (typeof(EnemyMover),typeof(EnemyAnimation), typeof (EnemySound))]
 public class ActionPatrol : StateMachineAction
 {
-    [Header("Elements")]
     [SerializeField] private WayPoint[] _wayPoints;
     [SerializeField] private float _waitTime;
     private Transform _target;
-    private Mover _mover;
+    private EnemyMover _mover;
     private EnemyAnimation _animation;
     private EnemySound _sound;
-
     private int _wayPointIndex;
     private float _maxSqrDistance = 0.1f;
     private float _endWaitTime;
@@ -18,11 +16,12 @@ public class ActionPatrol : StateMachineAction
 
     private void Start()
     {
-        _mover = GetComponent<Mover>();
+        _mover = GetComponent<EnemyMover>();
         _animation = GetComponent<EnemyAnimation>();
         _sound = GetComponent<EnemySound>();
         _target = _wayPoints[_wayPointIndex].transform;
     }
+
     public override void Act()
     {
         Patrol();

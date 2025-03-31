@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class PlayerAttacker : MonoBehaviour
 {
-    [SerializeField] private float _timeBtwAttacks;
-    private float _lastAttackTime;
+    [SerializeField] private float _delay;
+    private float _endWaitTime;
 
     public bool Attack( PlayerAnimator playerAnimator)
     {
-        if (Time.time - _lastAttackTime > _timeBtwAttacks )
+        if (Time.time >= _endWaitTime )
         {
-            Debug.Log("Attackker");
-            _lastAttackTime = Time.time;
+            _endWaitTime = Time.time + _delay;
             playerAnimator.SetAttackAnimation();
             return true;
         }

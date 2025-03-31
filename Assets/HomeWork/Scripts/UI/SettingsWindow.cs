@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class SettingsWindow : MonoBehaviour
 {
     [SerializeField] private AudioManager _audioManager;
-
     [SerializeField] private Button _backButton;
     [SerializeField] private Slider _musicVolume;
     [SerializeField] private Slider _soundVolume;
@@ -28,28 +27,6 @@ public class SettingsWindow : MonoBehaviour
         _musicSwitcher.onValueChanged.RemoveListener(SwitchMuteMusic);
         _soundSwitcher.onValueChanged.RemoveListener(SwitchMuteSound);
     }
-    private void ChangeVolumeMusic(float value)
-    {
-        SaveService.SetMusicVolume(value);
-        _audioManager.RefreshSettings();
-    }
-    private void ChangeVolumeSound(float value)
-    {
-        SaveService.SetSoundVolume(value);
-        _audioManager.RefreshSettings();
-    }
-
-    private void SwitchMuteMusic(bool isOn)
-    {
-        SaveService.SetMusicIsOn(isOn);
-        _audioManager.RefreshSettings();
-    }
-    private void SwitchMuteSound(bool isOn)
-    {
-        SaveService.SetSoundIsOn(isOn);
-        _audioManager.RefreshSettings();
-    }
-
     public void Open()
     {
         gameObject.SetActive(true);
@@ -62,5 +39,29 @@ public class SettingsWindow : MonoBehaviour
     {
         gameObject.SetActive(false);
         SaveService.Save();
+    }
+
+    private void ChangeVolumeMusic(float value)
+    {
+        SaveService.SetMusicVolume(value);
+        _audioManager.RefreshSettings();
+    }
+
+    private void ChangeVolumeSound(float value)
+    {
+        SaveService.SetSoundVolume(value);
+        _audioManager.RefreshSettings();
+    }
+
+    private void SwitchMuteMusic(bool isOn)
+    {
+        SaveService.SetMusicIsOn(isOn);
+        _audioManager.RefreshSettings();
+    }
+
+    private void SwitchMuteSound(bool isOn)
+    {
+        SaveService.SetSoundIsOn(isOn);
+        _audioManager.RefreshSettings();
     }
 }

@@ -17,6 +17,7 @@ public class HealthBar : MonoBehaviour
         _health = health;
         _health.ValueChanged += OnValueChanged;
     }
+
     private void OnValueChanged(float value, float maxValue)
     {
         _view.value = value / maxValue;

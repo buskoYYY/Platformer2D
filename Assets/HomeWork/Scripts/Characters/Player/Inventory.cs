@@ -12,6 +12,7 @@ public class Inventory
 
     public event Action<IItem> ItemAdded;
     public event Action<IItem> ItemRemoved;
+
     public void Add(IItem item)
     {
         if (item == null)
@@ -20,6 +21,7 @@ public class Inventory
         _items.Add(item);
         ItemAdded?.Invoke(item);
     }
+
     public IItem Take(IItem item)
     {
         if (item == null)
@@ -33,6 +35,7 @@ public class Inventory
 
         return item;
     }
+
     public bool Contains(IItem item)
     {
         return _items.Contains(item);

@@ -7,7 +7,6 @@ public class Switch : Interactable
 
     public bool IsActive { get; private set; }
 
-
     protected override void Awake()
     {
         base.Awake();
