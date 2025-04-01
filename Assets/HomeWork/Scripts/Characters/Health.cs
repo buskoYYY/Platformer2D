@@ -11,6 +11,9 @@ public class Health
         Value = maxValue;
     }
 
+    public event Action TakingDamage;
+    public event Action Died;
+
     public int MaxValue {  get; private set; }
     public int Value {  get; private set; }
 
@@ -20,6 +23,11 @@ public class Health
             return;
 
         ChangeValue(-damage);
+
+        TakingDamage?.Invoke();
+
+        if(Value == 0)
+            Died?.Invoke();
     }
 
     public void Heal ( int value)

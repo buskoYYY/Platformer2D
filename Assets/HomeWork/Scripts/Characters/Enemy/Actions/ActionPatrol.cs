@@ -1,14 +1,11 @@
 using UnityEngine;
 
-[RequireComponent (typeof(EnemyMover),typeof(EnemyAnimation), typeof (EnemySound))]
 public class ActionPatrol : StateMachineAction
 {
     [SerializeField] private WayPoint[] _wayPoints;
     [SerializeField] private float _waitTime;
+
     private Transform _target;
-    private EnemyMover _mover;
-    private EnemyAnimation _animation;
-    private EnemySound _sound;
     private int _wayPointIndex;
     private float _maxSqrDistance = 0.1f;
     private float _endWaitTime;
@@ -16,9 +13,6 @@ public class ActionPatrol : StateMachineAction
 
     private void Start()
     {
-        _mover = GetComponent<EnemyMover>();
-        _animation = GetComponent<EnemyAnimation>();
-        _sound = GetComponent<EnemySound>();
         _target = _wayPoints[_wayPointIndex].transform;
     }
 
@@ -31,23 +25,23 @@ public class ActionPatrol : StateMachineAction
     {
         if (_isWaiting == false)
         {
-            _animation.SetMoveAnimation(_target.position, transform.position);
-            _mover.Move(_target);
-            _sound.PlayStepSound();
+            Animation.SetMoveAnimation(_target.position, transform.position);
+            Mover.Move(_target);
+            Sound.PlayStepSound();
         }
 
         if (IsTargetReached() && _isWaiting == false)
         {
             _isWaiting = true;
             _endWaitTime = Time.time + _waitTime;
-           _animation.SetIdleAnimation(false);
+           Animation.SetIdleAnimation(false);
         }
 
         if (_isWaiting && _endWaitTime <= Time.time)
         {
             ChangeTarget();
             _isWaiting = false;
-           _animation.SetIdleAnimation(true);
+           Animation.SetIdleAnimation(true);
         }
     }
 

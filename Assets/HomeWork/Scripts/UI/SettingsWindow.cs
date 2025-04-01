@@ -27,6 +27,7 @@ public class SettingsWindow : MonoBehaviour
         _musicSwitcher.onValueChanged.RemoveListener(SwitchMuteMusic);
         _soundSwitcher.onValueChanged.RemoveListener(SwitchMuteSound);
     }
+
     public void Open()
     {
         gameObject.SetActive(true);
@@ -35,6 +36,7 @@ public class SettingsWindow : MonoBehaviour
         _musicVolume.value = SaveService.MusicVolume;
         _soundVolume.value = SaveService.SoundVolume;
     }
+
     public void Close()
     {
         gameObject.SetActive(false);

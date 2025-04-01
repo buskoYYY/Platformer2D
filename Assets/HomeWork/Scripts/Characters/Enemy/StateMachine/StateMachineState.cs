@@ -15,6 +15,14 @@ public class StateMachineState
         ExecuteTransitions(stateMachine);
     }
 
+    public void Init(EnemyAnimation animation, EnemySound sound, EnemyMover mover)
+    {
+        for (int i = 0; i < Actions.Length; i++)
+        {
+            Actions[i].Init(animation, sound, mover);
+        }
+    }
+
     private void ExecuteActions()
     {
         for (int i = 0; i < Actions.Length; i++)

@@ -13,6 +13,7 @@ public class ExteranalEffects : MonoBehaviour
             Instantiate(_hitEffect, spawnPosition, rotation);
         }
     }
+
     public void OnDeathEffect(Vector2 spawnPosition)
     {
         if (_deathEffect != null)

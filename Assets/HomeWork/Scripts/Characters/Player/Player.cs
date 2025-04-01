@@ -3,19 +3,16 @@ using UnityEngine;
 
 [RequireComponent(typeof(PlayerSounds), typeof(PlayerMover), typeof(PlayerAnimator))]
 [RequireComponent(typeof(CollisionHandler), typeof(PlayerAttacker))]
-public class Player : MonoBehaviour
+public class Player : Character
 {
-    [SerializeField] private HealthBar _healthBar;
     [SerializeField] private Canvas _interactableCanvas;
     [SerializeField] private InventoryView _inventoryView;
-    [SerializeField] private int _maxHealth;
 
     private PlayerMover _playerMotion;
     private PlayerAnimator _playerAnimator;
     private PlayerAttacker _playerAttacker;
     private CollisionHandler _collisionHandler;
     private PlayerSounds _audio;
-    private Health _health;
     private Inventory _inventory;
 
     public event Action Died;
@@ -25,11 +22,11 @@ public class Player : MonoBehaviour
     private IInteractable _interactable;
     private IInputReader _inputReader;
 
-    private void Awake()
+    protected override void Awake()
     {
-        _health = new Health(_maxHealth);
+        base.Awake();
+
         _inventory = new Inventory();
-        _healthBar.Initialize(_health);
 
         _playerMotion = GetComponent<PlayerMover>();
         _playerAnimator = GetComponent<PlayerAnimator>();
@@ -38,8 +35,10 @@ public class Player : MonoBehaviour
         _audio = GetComponent<PlayerSounds>();
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
+
         _collisionHandler.InteractacleFounded += OnInteractableFounded;
         _collisionHandler.MedKitFounded += OnMedKitFounded;
         _collisionHandler.KeyFounded += OnKeyFounded;
@@ -48,8 +47,9 @@ public class Player : MonoBehaviour
         _inventory.ItemRemoved += _inventoryView.Remove;
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        
         _collisionHandler.InteractacleFounded -= OnInteractableFounded;
         _collisionHandler.MedKitFounded -= OnMedKitFounded;
         _collisionHandler.KeyFounded -= OnKeyFounded;
@@ -108,26 +108,17 @@ public class Player : MonoBehaviour
         _inputReader = inputReader;
     }
 
-    public void ApplyDamage(int damage)
+    protected override void OnTakingDamage()
     {
-        _health.ApplyDamage(damage);
-
-        if (_health.Value > 0)
-        {
-            _audio.PlayHitSound();
-            HitEffectsCreated?.Invoke(transform.position, transform.rotation);
-        }
-        else
-        {
-            DeathEffectsCreated?.Invoke(transform.position);
-            _audio.PlayDeathSound();
-            Died?.Invoke();
-        }
+        _audio.PlayHitSound();
+        HitEffectsCreated?.Invoke(transform.position, transform.rotation);
     }
 
-    public void Heal(int value)
+    protected override void OnDied()
     {
-        _health.Heal(value);
+        DeathEffectsCreated?.Invoke(transform.position);
+        _audio.PlayDeathSound();
+        Died?.Invoke();
     }
 
     private void AddItemToInventory(IItem item)
@@ -144,7 +135,7 @@ public class Player : MonoBehaviour
 
     private void OnMedKitFounded(MedKit medKit)
     {
-        if (_health.Value < _health.MaxValue)
+        if (Health.Value < Health.MaxValue)
         {
             Heal(medKit.Value);
             medKit.Collect();

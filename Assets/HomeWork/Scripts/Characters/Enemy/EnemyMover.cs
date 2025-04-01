@@ -25,6 +25,7 @@ public class EnemyMover : MonoBehaviour
     {
         StartCoroutine(ToggleMovementStateRoutine());
     }
+
     private IEnumerator ToggleMovementStateRoutine()
     {
         _currentEnemySpeed = 0;

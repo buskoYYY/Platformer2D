@@ -8,6 +8,7 @@ public class LevelCell : MonoBehaviour
     [SerializeField] private Button _openButton;
     [SerializeField] private Image _lockIcon;
     [SerializeField] private TMP_Text _numberText;
+
     private string _sceneName;
 
     public event Action<string> SceneSelected;

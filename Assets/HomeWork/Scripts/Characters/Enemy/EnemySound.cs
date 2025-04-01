@@ -29,6 +29,7 @@ public class EnemySound : MonoBehaviour
             }
        }
     }
+
     public void PlayHitSound() => _audioManager.PlaySound(_hitSound);
 
     public void PlayAttackSound() => _audioManager.PlaySound(_attackSound);

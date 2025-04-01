@@ -4,7 +4,9 @@ public class DecisionAttackPlayer : StateMachineDecision
 {
     [SerializeField] LayerMask _playerLayer;
     [SerializeField] private float _radius;
+
     public bool IsAttackState {  get; private set; }
+
     public override bool Decide()
     {
         return SetAttackState();

@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyAnimation : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
+
     public void SetMoveAnimation(Vector2 targetPos, Vector2 enemyPos)
     {
         Vector2 direction = targetPos - enemyPos;

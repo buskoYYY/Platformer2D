@@ -29,10 +29,12 @@ public abstract class PauseWindowBase : MonoBehaviour
     {
         SceneManager.LoadScene(sceneIndex);
     }
+
     private void Restart()
     {
         LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
     private void Exit()
     {
         LoadScene(MAIN_MENU_SCENE_INDEX);

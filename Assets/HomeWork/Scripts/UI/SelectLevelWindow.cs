@@ -32,6 +32,7 @@ public class SelectLevelWindow : MonoBehaviour
     {
         gameObject.SetActive(true);
     }
+
     public void Close()
     {
         gameObject.SetActive(false);

@@ -21,7 +21,6 @@ public class PlayerMover : MonoBehaviour
         {
             if (_currentSpeed != _normalSpeed)
             {
-                Debug.Log("SppedUp");
                 audio.PlayAccelerationSound();
             }
             else

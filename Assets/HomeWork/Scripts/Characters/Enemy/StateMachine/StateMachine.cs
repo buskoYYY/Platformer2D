@@ -1,10 +1,13 @@
 using UnityEngine;
 
-[RequireComponent(typeof(EnemySound))]
 public class StateMachine : MonoBehaviour
 {
     [SerializeField] private StateMachineState[] _states;
     [SerializeField] private string _initState;
+
+    private EnemyAnimation _animation;
+    private EnemySound _sound;
+    private EnemyMover _mover;
 
     public StateMachineState CurrentState { get; set; }
 
@@ -18,6 +21,15 @@ public class StateMachine : MonoBehaviour
         CurrentState?.UpadateState(this);
     }
 
+    public void Init(EnemyAnimation animation, EnemySound sound, EnemyMover mover)
+    {
+        _animation = animation;
+        _sound = sound;
+        _mover = mover;
+
+        CurrentState?.Init(_animation, _sound, _mover);
+    }
+
     public void ChangeState(string newStateID)
     {
         StateMachineState newState = GetState(newStateID);
@@ -26,6 +38,7 @@ public class StateMachine : MonoBehaviour
             return;
 
         CurrentState = newState;
+        CurrentState.Init(_animation, _sound, _mover);
     }
 
     private StateMachineState GetState(string newStateID)

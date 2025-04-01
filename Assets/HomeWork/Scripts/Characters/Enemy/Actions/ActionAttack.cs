@@ -1,8 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(DecisionAttackPlayer), typeof(DecisionDetectPlayer), typeof(EnemyAnimation))]
-[RequireComponent(typeof(EnemyMover), typeof(EnemySound))]
+[RequireComponent(typeof(DecisionAttackPlayer), typeof(DecisionDetectPlayer))]
 public class ActionAttack : StateMachineAction
 {
     [SerializeField] EnemyAnimationEvent _animationEvent;
@@ -10,11 +9,9 @@ public class ActionAttack : StateMachineAction
     [SerializeField] private float _delay;
     [SerializeField] float _eventCooldown = 0.5f;
 
-    private EnemyAnimation _animation;
-    private EnemySound _sound;
     private DecisionDetectPlayer _decisionDetectPlayer;
     private DecisionAttackPlayer _decisionAttackPlayer;
-    private EnemyMover _mover;
+
     private float _endWaitTime;
     private bool _canTriggerEvent = true;
 
@@ -22,9 +19,6 @@ public class ActionAttack : StateMachineAction
     {
         _decisionAttackPlayer = GetComponent<DecisionAttackPlayer>();
         _decisionDetectPlayer = GetComponent<DecisionDetectPlayer>();
-        _animation = GetComponent<EnemyAnimation>();
-        _mover = GetComponent<EnemyMover>();
-        _sound = GetComponent<EnemySound>();
     }
 
     private void OnEnable()
@@ -46,14 +40,14 @@ public class ActionAttack : StateMachineAction
     {
         if (_decisionDetectPlayer.Player != null)
         {
-            _animation.SetIdleAnimation(false);
+            Animation.SetIdleAnimation(false);
 
             if (Time.time >= _endWaitTime)
             {
-                _mover.ToggleMovementState();
-                _sound.PlayAttackSound();
+                Mover.ToggleMovementState();
+                Sound.PlayAttackSound();
                 _endWaitTime = Time.time + _delay;
-                _animation.SetAttackAnimation();
+                Animation.SetAttackAnimation();
             }
         }
     }

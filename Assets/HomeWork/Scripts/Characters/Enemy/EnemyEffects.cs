@@ -15,6 +15,7 @@ public class EnemyEffects : ExteranalEffects
         _enemy.HitEffectsCreated += OnHitEffect;
         _enemy.DeathEffectsCreated += OnDeathEffect;
     }
+
     private void OnDisable()
     {
         _enemy.HitEffectsCreated += OnHitEffect;

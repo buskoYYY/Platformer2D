@@ -7,6 +7,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private Finish _finish;
     [SerializeField] private FailWindow _failWindow;
     [SerializeField] private WinWindow _winWindow;
+
     private void Awake()
     {
         _failWindow.Initialize(_player);
