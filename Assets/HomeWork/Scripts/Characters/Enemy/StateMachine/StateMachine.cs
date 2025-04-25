@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    [SerializeField] private StateMachineState[] _states;
+    [SerializeField] private States[] _states;
     [SerializeField] private string _initState;
 
     private EnemyAnimation _animation;
     private EnemySound _sound;
     private EnemyMover _mover;
 
-    public StateMachineState CurrentState { get; set; }
+    public States CurrentState { get; set; }
 
     private void Start()
     {
@@ -32,7 +32,7 @@ public class StateMachine : MonoBehaviour
 
     public void ChangeState(string newStateID)
     {
-        StateMachineState newState = GetState(newStateID);
+        States newState = GetState(newStateID);
 
         if (newState == null)
             return;
@@ -41,7 +41,7 @@ public class StateMachine : MonoBehaviour
         CurrentState.Init(_animation, _sound, _mover);
     }
 
-    private StateMachineState GetState(string newStateID)
+    private States GetState(string newStateID)
     {
         for (int i = 0; i < _states.Length; i++)
         {

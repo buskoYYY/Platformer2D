@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 7851631209761563948}
   - component: {fileID: 8422613923639342767}
   - component: {fileID: 501635003645697714}
+  - component: {fileID: 2617812487719838667}
   m_Layer: 6
   m_Name: Monk
   m_TagString: Enemy
@@ -241,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7824857845660908351}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.248056, y: 7.953528, z: 9.86272}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -449,9 +450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b5bdc0d00616343907ac29c22f9deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitEffect: {fileID: 3717935869477163416, guid: b9872d9ebcf288f4b96c7a33d2d0b83e, type: 3}
   _deathEffect: {fileID: 2602693932374628246, guid: c3057974522ba5f4a88bf97211535e3c, type: 3}
-  _waitToDestroyEffect: 1
+  _waitToDestroyEffect: 4
 --- !u!114 &7851631209761563948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5067abcfdf8ae249a764eb858e4338b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemySpeed: 1.4
+  _enemySpeed: 1.5
   _waitTimeToMove: 1
 --- !u!114 &8422613923639342767
 MonoBehaviour:
@@ -479,15 +479,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _states:
-  - ID: Patrol
-    Actions:
+  - Actions:
     - {fileID: 5774952207011008530}
     Transitions:
     - Decision: {fileID: 4021907280960353749}
       TrueState: Chase
       FalseState: 
-  - ID: Chase
-    Actions:
+    _ID: 
+  - Actions:
     - {fileID: 568425678434667402}
     Transitions:
     - Decision: {fileID: 4021907280960353749}
@@ -496,13 +495,14 @@ MonoBehaviour:
     - Decision: {fileID: 6697740190960346232}
       TrueState: Attack
       FalseState: 
-  - ID: Attack
-    Actions:
+    _ID: 
+  - Actions:
     - {fileID: 2762954043149859154}
     Transitions:
     - Decision: {fileID: 6697740190960346232}
       TrueState: 
       FalseState: Chase
+    _ID: 
   _initState: Patrol
 --- !u!114 &501635003645697714
 MonoBehaviour:
@@ -518,6 +518,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 8631988008180004557}
   _maxHealth: 5
+--- !u!114 &2617812487719838667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7824857845660908351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1fb87e855434854392a5240c26d5a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolCount: 3
+  _autoExpand: 1
+  _hitEffect: {fileID: 3717935869477163416, guid: b9872d9ebcf288f4b96c7a33d2d0b83e, type: 3}
 --- !u!1001 &1689308972378935575
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -16,8 +16,8 @@ public class Player : Character
     private Inventory _inventory;
 
     public event Action Died;
-    public event Action<Vector2> DeathEffectsCreated;
-    public event Action<Vector2, Quaternion> HitEffectsCreated;
+    public event Action<Vector2> DeathEffectsTriggered;
+    public event Action<Vector2, Quaternion> HitEffectsTriggered;
 
     private IInteractable _interactable;
     private IInputReader _inputReader;
@@ -76,11 +76,11 @@ public class Player : Character
 
         if(_inputReader.GetSpeedUp())
         {
-            _playerMotion.CheckAcceleration(true);
+            _playerMotion.SetCurrentSpeed(true);
         }
         else
         {
-            _playerMotion.CheckAcceleration(false);
+            _playerMotion.SetCurrentSpeed(false);
         }
         
         if (_inputReader.GetIsInteract() && _interactable != null)
@@ -111,12 +111,12 @@ public class Player : Character
     protected override void OnTakingDamage()
     {
         _audio.PlayHitSound();
-        HitEffectsCreated?.Invoke(transform.position, transform.rotation);
+        HitEffectsTriggered?.Invoke(transform.position, transform.rotation);
     }
 
     protected override void OnDied()
     {
-        DeathEffectsCreated?.Invoke(transform.position);
+        DeathEffectsTriggered?.Invoke(transform.position);
         _audio.PlayDeathSound();
         Died?.Invoke();
     }

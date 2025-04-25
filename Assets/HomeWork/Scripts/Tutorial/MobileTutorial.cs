@@ -23,7 +23,7 @@ public class MobileTutorial : MonoBehaviour
 
     private void OnDisable()
     {
-        _joystick.Down += OnDown;
+        _joystick.Down -= OnDown;
     }
 
     private void OnDown()

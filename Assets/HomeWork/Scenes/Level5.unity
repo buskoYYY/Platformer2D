@@ -3915,10 +3915,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130905586}
     - target: {fileID: 5344708754207642863, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: _wayPoints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5344708754207642863, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
       propertyPath: _wayPoints.Array.data[0]
       value: 
       objectReference: {fileID: 656173329}
@@ -3934,17 +3930,21 @@ PrefabInstance:
       propertyPath: _wayPoints.Array.data[3]
       value: 
       objectReference: {fileID: 1609967185}
-    - target: {fileID: 6003973997686571901, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003973997686571901, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6082599605859002549, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
       propertyPath: m_Name
       value: Warrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
+      propertyPath: _states.Array.data[0]._ID
+      value: Patrol
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
+      propertyPath: _states.Array.data[1]._ID
+      value: Chase
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
+      propertyPath: _states.Array.data[2]._ID
+      value: Attack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5260,6 +5260,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130905586}
     - target: {fileID: 5344708754207642863, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
+      propertyPath: _wayPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344708754207642863, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
       propertyPath: _wayPoints.Array.data[0]
       value: 
       objectReference: {fileID: 2103824614}
@@ -5282,6 +5286,22 @@ PrefabInstance:
     - target: {fileID: 6082599605859002549, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
       propertyPath: m_Name
       value: Warrior (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082599605859002549, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
+      propertyPath: _states.Array.data[0]._ID
+      value: Patrol
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
+      propertyPath: _states.Array.data[1]._ID
+      value: Chase
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
+      propertyPath: _states.Array.data[2]._ID
+      value: Attack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6469,6 +6489,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130905586}
     - target: {fileID: 5344708754207642863, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
+      propertyPath: _wayPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344708754207642863, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
       propertyPath: _wayPoints.Array.data[0]
       value: 
       objectReference: {fileID: 495064816}
@@ -6491,6 +6515,22 @@ PrefabInstance:
     - target: {fileID: 6082599605859002549, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
       propertyPath: m_Name
       value: Warrior (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082599605859002549, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
+      propertyPath: _states.Array.data[0]._ID
+      value: Patrol
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
+      propertyPath: _states.Array.data[1]._ID
+      value: Chase
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
+      propertyPath: _states.Array.data[2]._ID
+      value: Attack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6867,21 +6907,21 @@ PrefabInstance:
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 2130905586}
-    - target: {fileID: 1626873613549913669, guid: 1b45b96544d9a574a98de4aeeb3cf644, type: 3}
-      propertyPath: _hitEffect
-      value: 
-      objectReference: {fileID: 3717935869477163416, guid: b9872d9ebcf288f4b96c7a33d2d0b83e, type: 3}
-    - target: {fileID: 1626873613549913669, guid: 1b45b96544d9a574a98de4aeeb3cf644, type: 3}
-      propertyPath: _deathEffect
-      value: 
-      objectReference: {fileID: 2602693932374628246, guid: c3057974522ba5f4a88bf97211535e3c, type: 3}
+    - target: {fileID: 6164074769239793167, guid: 1b45b96544d9a574a98de4aeeb3cf644, type: 3}
+      propertyPath: _states.Array.data[0]._ID
+      value: Patrol
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164074769239793167, guid: 1b45b96544d9a574a98de4aeeb3cf644, type: 3}
+      propertyPath: _states.Array.data[1]._ID
+      value: Chase
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164074769239793167, guid: 1b45b96544d9a574a98de4aeeb3cf644, type: 3}
+      propertyPath: _states.Array.data[2]._ID
+      value: Attack
+      objectReference: {fileID: 0}
     - target: {fileID: 7157427580862192003, guid: 1b45b96544d9a574a98de4aeeb3cf644, type: 3}
       propertyPath: m_Name
       value: Wizard (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7338672660018685615, guid: 1b45b96544d9a574a98de4aeeb3cf644, type: 3}
-      propertyPath: _wayPoints.Array.size
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7338672660018685615, guid: 1b45b96544d9a574a98de4aeeb3cf644, type: 3}
       propertyPath: _wayPoints.Array.data[0]
@@ -7435,7 +7475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8366288304982679646, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
       propertyPath: _maxHealth
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8366288304982679646, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
       propertyPath: _inventoryView
@@ -7521,9 +7561,29 @@ PrefabInstance:
       propertyPath: _deathEffect
       value: 
       objectReference: {fileID: 2602693932374628246, guid: c3057974522ba5f4a88bf97211535e3c, type: 3}
+    - target: {fileID: 6164074769239793167, guid: 1b45b96544d9a574a98de4aeeb3cf644, type: 3}
+      propertyPath: _states.Array.data[0]._ID
+      value: Patrol
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164074769239793167, guid: 1b45b96544d9a574a98de4aeeb3cf644, type: 3}
+      propertyPath: _states.Array.data[1]._ID
+      value: Chase
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164074769239793167, guid: 1b45b96544d9a574a98de4aeeb3cf644, type: 3}
+      propertyPath: _states.Array.data[2]._ID
+      value: Attack
+      objectReference: {fileID: 0}
     - target: {fileID: 7157427580862192003, guid: 1b45b96544d9a574a98de4aeeb3cf644, type: 3}
       propertyPath: m_Name
       value: Wizard
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157427580862192003, guid: 1b45b96544d9a574a98de4aeeb3cf644, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338672660018685615, guid: 1b45b96544d9a574a98de4aeeb3cf644, type: 3}
+      propertyPath: _wayPoints.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7338672660018685615, guid: 1b45b96544d9a574a98de4aeeb3cf644, type: 3}
       propertyPath: _wayPoints.Array.data[0]

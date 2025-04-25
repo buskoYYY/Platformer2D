@@ -822,6 +822,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 345183255}
     m_Modifications:
+    - target: {fileID: 4198049860954476, guid: f0c2a0c15fa013048a769461db0581a9, type: 3}
+      propertyPath: _states.Array.data[0]._ID
+      value: Patrol
+      objectReference: {fileID: 0}
+    - target: {fileID: 4198049860954476, guid: f0c2a0c15fa013048a769461db0581a9, type: 3}
+      propertyPath: _states.Array.data[1]._ID
+      value: Chase
+      objectReference: {fileID: 0}
+    - target: {fileID: 4198049860954476, guid: f0c2a0c15fa013048a769461db0581a9, type: 3}
+      propertyPath: _states.Array.data[2]._ID
+      value: Attack
+      objectReference: {fileID: 0}
     - target: {fileID: 1263589183710203909, guid: f0c2a0c15fa013048a769461db0581a9, type: 3}
       propertyPath: m_Name
       value: Samurai
@@ -6219,6 +6231,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Noble (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3282247406441889903, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4226326661292886515, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20.958055
@@ -6259,14 +6275,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
+      propertyPath: _states.Array.data[0]._ID
+      value: Patrol
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
+      propertyPath: _states.Array.data[1]._ID
+      value: Chase
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
+      propertyPath: _states.Array.data[2]._ID
+      value: Attack
+      objectReference: {fileID: 0}
     - target: {fileID: 7009171309281349228, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 2130905586}
-    - target: {fileID: 7019271770462864046, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _wayPoints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7019271770462864046, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: _wayPoints.Array.data[0]
       value: 
@@ -6281,22 +6305,6 @@ PrefabInstance:
       objectReference: {fileID: 27707414}
     - target: {fileID: 7019271770462864046, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: _wayPoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 1135618347}
-    - target: {fileID: 7019271770462864046, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _wayPoints.Array.data[4]
-      value: 
-      objectReference: {fileID: 1135618347}
-    - target: {fileID: 7019271770462864046, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _wayPoints.Array.data[5]
-      value: 
-      objectReference: {fileID: 1135618347}
-    - target: {fileID: 7019271770462864046, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _wayPoints.Array.data[6]
-      value: 
-      objectReference: {fileID: 1135618347}
-    - target: {fileID: 7019271770462864046, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _wayPoints.Array.data[7]
       value: 
       objectReference: {fileID: 1135618347}
     m_RemovedComponents: []
@@ -9081,6 +9089,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4519474845824559998, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
+      propertyPath: _extraSpeed
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 8366288304982679646, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
       propertyPath: _inventoryView
       value: 
@@ -9161,6 +9173,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Noble
       objectReference: {fileID: 0}
+    - target: {fileID: 3282247406441889903, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4226326661292886515, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.98
@@ -9201,10 +9217,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
+      propertyPath: _states.Array.data[0]._ID
+      value: Patrol
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
+      propertyPath: _states.Array.data[1]._ID
+      value: Chase
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
+      propertyPath: _states.Array.data[2]._ID
+      value: Attack
+      objectReference: {fileID: 0}
     - target: {fileID: 7009171309281349228, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 2130905586}
+    - target: {fileID: 7019271770462864046, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
+      propertyPath: _wayPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7019271770462864046, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: _wayPoints.Array.data[0]
       value: 
@@ -9346,6 +9378,18 @@ PrefabInstance:
     - target: {fileID: 7824857845660908351, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
       propertyPath: m_Name
       value: Monk
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422613923639342767, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
+      propertyPath: _states.Array.data[0]._ID
+      value: Patrol
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422613923639342767, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
+      propertyPath: _states.Array.data[1]._ID
+      value: Chase
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422613923639342767, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
+      propertyPath: _states.Array.data[2]._ID
+      value: Attack
       objectReference: {fileID: 0}
     - target: {fileID: 8795128679666637580, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
       propertyPath: m_AnchorMax.x

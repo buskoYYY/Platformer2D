@@ -5,7 +5,7 @@ public class Switch : Interactable
 {
     private Animator _animator;
 
-    public bool IsActive { get; private set; }
+    public bool IsBlocked { get; private set; }
 
     protected override void Awake()
     {
@@ -21,9 +21,9 @@ public class Switch : Interactable
             return;
         }
 
-        IsActive = !IsActive;
+        IsBlocked = !IsBlocked;
 
-        if (IsActive)
+        if (IsBlocked)
         {
             _animator.SetTrigger(ConstantData.AnimatorParametr.IsOpen);
         }

@@ -18,10 +18,11 @@ GameObject:
   - component: {fileID: 332730352831745952}
   - component: {fileID: 3716775816383842621}
   - component: {fileID: 5160487952034369052}
-  - component: {fileID: 8215232321134153173}
   - component: {fileID: 1122894630902695471}
   - component: {fileID: 4198049860954476}
   - component: {fileID: 9109018993888765175}
+  - component: {fileID: 4673003187865666830}
+  - component: {fileID: 2632132582603247489}
   m_Layer: 6
   m_Name: Samurai
   m_TagString: Enemy
@@ -234,21 +235,6 @@ MonoBehaviour:
   _deathSound: {fileID: 8300000, guid: 8b12cec820eab67419080d1abb6879f5, type: 3}
   _lowPitch: 2
   _topPitch: 2
---- !u!114 &8215232321134153173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263589183710203909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6b5bdc0d00616343907ac29c22f9deb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hitEffect: {fileID: 3717935869477163416, guid: b9872d9ebcf288f4b96c7a33d2d0b83e, type: 3}
-  _deathEffect: {fileID: 2602693932374628246, guid: c3057974522ba5f4a88bf97211535e3c, type: 3}
-  _waitToDestroyEffect: 1
 --- !u!114 &1122894630902695471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,15 +262,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _states:
-  - ID: Patrol
-    Actions:
+  - Actions:
     - {fileID: 7408721058955764530}
     Transitions:
     - Decision: {fileID: 698921658718842144}
       TrueState: Chase
       FalseState: 
-  - ID: Chase
-    Actions:
+    _ID: Patrol
+  - Actions:
     - {fileID: 5185998205106547738}
     Transitions:
     - Decision: {fileID: 698921658718842144}
@@ -293,13 +278,14 @@ MonoBehaviour:
     - Decision: {fileID: 3716775816383842621}
       TrueState: Attack
       FalseState: 
-  - ID: Attack
-    Actions:
+    _ID: Chase
+  - Actions:
     - {fileID: 332730352831745952}
     Transitions:
     - Decision: {fileID: 3716775816383842621}
       TrueState: 
       FalseState: Chase
+    _ID: Attack
   _initState: Patrol
 --- !u!114 &9109018993888765175
 MonoBehaviour:
@@ -314,7 +300,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 2701944468894586248}
-  _maxHealth: 5
+  _maxHealth: 3
+--- !u!114 &4673003187865666830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263589183710203909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1fb87e855434854392a5240c26d5a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolCount: 3
+  _autoExpand: 1
+  _hitEffect: {fileID: 3717935869477163416, guid: b9872d9ebcf288f4b96c7a33d2d0b83e, type: 3}
+--- !u!114 &2632132582603247489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263589183710203909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b5bdc0d00616343907ac29c22f9deb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deathEffect: {fileID: 2602693932374628246, guid: c3057974522ba5f4a88bf97211535e3c, type: 3}
+  _waitToDestroyEffect: 4
 --- !u!1 &8738973283968470326
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +542,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4916056555353606606}
     m_Modifications:
+    - target: {fileID: 14349346926278494, guid: a0e6f71272c927d44ab820807fdca8d6, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 682851142737946557, guid: a0e6f71272c927d44ab820807fdca8d6, type: 3}
       propertyPath: m_SizeDelta.x
       value: 1000

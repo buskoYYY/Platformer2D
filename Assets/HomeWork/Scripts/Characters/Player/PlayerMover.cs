@@ -32,7 +32,7 @@ public class PlayerMover : MonoBehaviour
         _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity, direction * _currentSpeed,.3f);
     }
 
-    public void CheckAcceleration(bool isSpeedUp)
+    public void SetCurrentSpeed(bool isSpeedUp)
     {
         if (isSpeedUp)
         {

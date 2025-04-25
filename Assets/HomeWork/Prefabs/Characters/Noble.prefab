@@ -142,13 +142,14 @@ GameObject:
   - component: {fileID: 3438040721875237660}
   - component: {fileID: 6649620166107754203}
   - component: {fileID: 3975260277517287079}
+  - component: {fileID: 2964620639488323571}
   m_Layer: 6
   m_Name: Noble
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4226326661292886515
 Transform:
   m_ObjectHideFlags: 0
@@ -157,7 +158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3282247406441889903}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 26.98, y: 0.55352795, z: 9.86272}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -267,6 +268,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   _waitTime: 1.3
 --- !u!114 &2892542259772968577
 MonoBehaviour:
@@ -365,9 +367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b5bdc0d00616343907ac29c22f9deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitEffect: {fileID: 3717935869477163416, guid: b9872d9ebcf288f4b96c7a33d2d0b83e, type: 3}
   _deathEffect: {fileID: 2602693932374628246, guid: c3057974522ba5f4a88bf97211535e3c, type: 3}
-  _waitToDestroyEffect: 1
+  _waitToDestroyEffect: 4
 --- !u!114 &3438040721875237660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,7 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5067abcfdf8ae249a764eb858e4338b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemySpeed: 1.5
+  _enemySpeed: 1.4
   _waitTimeToMove: 1
 --- !u!114 &6649620166107754203
 MonoBehaviour:
@@ -395,15 +396,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _states:
-  - ID: Patrol
-    Actions:
+  - Actions:
     - {fileID: 7019271770462864046}
     Transitions:
     - Decision: {fileID: 2892542259772968577}
       TrueState: Chase
       FalseState: 
-  - ID: Chase
-    Actions:
+    _ID: 
+  - Actions:
     - {fileID: 712279133732236601}
     Transitions:
     - Decision: {fileID: 2892542259772968577}
@@ -412,13 +412,14 @@ MonoBehaviour:
     - Decision: {fileID: 703871615910109733}
       TrueState: Attack
       FalseState: 
-  - ID: Attack
-    Actions:
+    _ID: 
+  - Actions:
     - {fileID: 2438713747767503175}
     Transitions:
     - Decision: {fileID: 703871615910109733}
       TrueState: 
       FalseState: Chase
+    _ID: 
   _initState: Patrol
 --- !u!114 &3975260277517287079
 MonoBehaviour:
@@ -433,7 +434,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 2093736243850038966}
-  _maxHealth: 5
+  _maxHealth: 4
+--- !u!114 &2964620639488323571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3282247406441889903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1fb87e855434854392a5240c26d5a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolCount: 3
+  _autoExpand: 1
+  _hitEffect: {fileID: 3717935869477163416, guid: b9872d9ebcf288f4b96c7a33d2d0b83e, type: 3}
 --- !u!1 &4143651143670649136
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,11 +648,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7890081563342768667, guid: a0e6f71272c927d44ab820807fdca8d6, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7890081563342768667, guid: a0e6f71272c927d44ab820807fdca8d6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7890081563342768667, guid: a0e6f71272c927d44ab820807fdca8d6, type: 3}
       propertyPath: m_SizeDelta.x

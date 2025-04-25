@@ -10,8 +10,8 @@ public class Enemy : Character
     private EnemyMover _mover;
     private StateMachine _stateMachine;
 
-    public event Action<Vector2> DeathEffectsCreated;
-    public event Action<Vector2, Quaternion> HitEffectsCreated;
+    public event Action<Vector2> DeathEffectsTriggered;
+    public event Action<Vector2, Quaternion> HitEffectsTriggered;
 
     protected override void Awake()
     {
@@ -29,13 +29,13 @@ public class Enemy : Character
     protected override void OnTakingDamage()
     {
         _sound.PlayHitSound();
-        HitEffectsCreated?.Invoke(transform.position, transform.rotation);
+        HitEffectsTriggered?.Invoke(transform.position, transform.rotation);
     }
 
     protected override void OnDied()
     {
         _sound.PlayDeathSound();
-        DeathEffectsCreated?.Invoke(transform.position);
+        DeathEffectsTriggered?.Invoke(transform.position);
         Destroy(gameObject);
     }
 }

@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class Health
 { 
-    public event Action<float,float> ValueChanged;
-
     public Health(int maxValue)
     {
         MaxValue = maxValue;
         Value = maxValue;
     }
 
+    public event Action<float, float> ValueChanged;
     public event Action TakingDamage;
     public event Action Died;
 

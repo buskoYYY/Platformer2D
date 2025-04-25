@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource _randomPitchSoundSource;
     [SerializeField] private AudioClip _defaultMusic;
     [SerializeField] private float _sqrMaxDistanceToSource = 100f;
+
     private Transform _listenerTransform;
 
     private void Awake()

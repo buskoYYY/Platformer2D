@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0.1008, y: -0.0321, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4633952324413689270}
@@ -295,9 +295,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 2102423346616040054}
+  _maxHealth: 3
   _interactableCanvas: {fileID: 5282575858973171367}
   _inventoryView: {fileID: 0}
-  _maxHealth: 3
 --- !u!114 &8475237828420256609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _normalSpeed: 2
-  _extraSpeed: 50
+  _extraSpeed: 40
 --- !u!1 &7064919295816110610
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +686,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4760374309576003032, guid: 2da3a8178d83d914e90d1fee293d728c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760374309576003032, guid: 2da3a8178d83d914e90d1fee293d728c, type: 3}
       propertyPath: m_SortingLayerID
       value: 754124811
       objectReference: {fileID: 0}
@@ -739,6 +743,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8436374984907252487}
     m_Modifications:
+    - target: {fileID: 14349346926278494, guid: a0e6f71272c927d44ab820807fdca8d6, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 682851142737946557, guid: a0e6f71272c927d44ab820807fdca8d6, type: 3}
       propertyPath: m_SizeDelta.x
       value: 1000

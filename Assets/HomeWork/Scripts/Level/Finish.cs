@@ -17,13 +17,13 @@ public class Finish : Interactable
             return;
         }
 
-        if (_switchers.All(i => i.IsActive))
+        if (_switchers.All(i => i.IsBlocked))
         {
             Activated?.Invoke();
         }
         else
         {
-            ShowMessage(_switchers.Count(i => i.IsActive), _switchers.Length, _swintchIcon);
+            ShowMessage(_switchers.Count(i => i.IsBlocked), _switchers.Length, _swintchIcon);
         }
     }
 }

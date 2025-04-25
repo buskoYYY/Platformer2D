@@ -45,7 +45,10 @@ public class EntryPoint : MonoBehaviour
         {
             StartCoroutine(LoadLocale(YandexGame.EnvironmentData.language));
         }
-        catch(Exception) { }
+        catch(Exception) 
+        {
+            Debug.Log("The localization system is not loaded");
+        }
     }
 
     private IEnumerator LoadLocale(string languageIdentifier)
