@@ -1,2 +1,2 @@
 Build path: D:/Unity Games/Platformer2D/Build
-Build number: 6
+Build number: 8

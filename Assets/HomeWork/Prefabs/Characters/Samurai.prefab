@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5067abcfdf8ae249a764eb858e4338b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemySpeed: 1.2
+  _enemySpeed: 2.5
   _waitTimeToMove: 1
 --- !u!114 &4198049860954476
 MonoBehaviour:
@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 2701944468894586248}
-  _maxHealth: 3
+  _maxHealth: 4
 --- !u!114 &4673003187865666830
 MonoBehaviour:
   m_ObjectHideFlags: 0

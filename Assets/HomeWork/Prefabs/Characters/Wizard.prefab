@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5067abcfdf8ae249a764eb858e4338b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemySpeed: 1.8
+  _enemySpeed: 3.5
   _waitTimeToMove: 1
 --- !u!114 &6164074769239793167
 MonoBehaviour:

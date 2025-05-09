@@ -74,6 +74,18 @@ MonoBehaviour:
     m_Localized: Next level
     m_Metadata:
       m_Items: []
+  - m_Id: 18445884574023680
+    m_Localized: Find the right key
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19817255807893504
+    m_Localized: Finish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19877660253110272
+    m_Localized: Find the right key
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
