@@ -3278,6 +3278,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4638281394661622004, guid: 11cc0a044b8c4f84ea7edc5144335443, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.9998779
+      objectReference: {fileID: 0}
     - target: {fileID: 5521559726604201247, guid: 11cc0a044b8c4f84ea7edc5144335443, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3362,6 +3366,10 @@ PrefabInstance:
       propertyPath: _pauseWindow
       value: 
       objectReference: {fileID: 675376648}
+    - target: {fileID: 6789850253478318197, guid: 11cc0a044b8c4f84ea7edc5144335443, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 57.600098
+      objectReference: {fileID: 0}
     - target: {fileID: 8618081633002780716, guid: 11cc0a044b8c4f84ea7edc5144335443, type: 3}
       propertyPath: m_UiScaleMode
       value: 1

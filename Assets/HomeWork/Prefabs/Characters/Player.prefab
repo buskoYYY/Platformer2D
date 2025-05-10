@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 2466982841254849828}
   - component: {fileID: 2665123632112669595}
   - component: {fileID: 4519474845824559998}
+  - component: {fileID: 240091421266997513}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -294,7 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 2102423346616040054}
-  _maxHealth: 3
+  _maxHealth: 6
   _interactableCanvas: {fileID: 5282575858973171367}
   _inventoryView: {fileID: 0}
 --- !u!114 &8475237828420256609
@@ -399,6 +400,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _normalSpeed: 4
   _extraSpeed: 40
+--- !u!114 &240091421266997513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3875737520586035040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 391397cae52de6b4385ebd583329a057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolCount: 3
+  _autoExpand: 1
+  _hitEffect: {fileID: 3717935869477163416, guid: b9872d9ebcf288f4b96c7a33d2d0b83e, type: 3}
+  _puffEffect: {fileID: 1500958162325665011, guid: 6d7289b9f5389f446aa32adbb9debe8f, type: 3}
 --- !u!1 &7064919295816110610
 GameObject:
   m_ObjectHideFlags: 0

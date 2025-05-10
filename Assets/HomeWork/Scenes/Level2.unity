@@ -783,20 +783,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130905586}
     - target: {fileID: 2665123632112669595, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: _isMobile
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2665123632112669595, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
       propertyPath: _mobileInput
       value: 
       objectReference: {fileID: 191592392}
     - target: {fileID: 3875737520586035040, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8366288304982679646, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: _maxHealth
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8366288304982679646, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
       propertyPath: _inventoryView
