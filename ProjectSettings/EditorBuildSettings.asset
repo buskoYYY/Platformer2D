@@ -23,6 +23,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/HomeWork/Scenes/Level5.unity
     guid: f13cb41fdcf37db4fb506b0e7518c581
+  - enabled: 1
+    path: Assets/HomeWork/Scenes/Level6.unity
+    guid: ebe0fa9355b360c47bbf5d3ac483545a
+  - enabled: 1
+    path: Assets/HomeWork/Scenes/Level7.unity
+    guid: 57c28702192ec3542a636d24266ee36e
+  - enabled: 1
+    path: Assets/HomeWork/Scenes/Level8.unity
+    guid: 4958e1a60143ba84dbf98bd69b10e470
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 56522286142e8b6448411b68dc223597, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 5503c34cb9169334eac413076b7fa018, type: 2}

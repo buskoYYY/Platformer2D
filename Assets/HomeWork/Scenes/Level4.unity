@@ -964,6 +964,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 87757835}
+  - {fileID: 1958593961}
   - {fileID: 519228843}
   - {fileID: 79206833}
   - {fileID: 1006599454}
@@ -7089,26 +7090,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monk (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 8422613923639342767, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
-      propertyPath: _states.Array.data[0]._ID
-      value: Patrol
-      objectReference: {fileID: 0}
-    - target: {fileID: 8422613923639342767, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
-      propertyPath: _states.Array.data[1]._ID
-      value: Chase
-      objectReference: {fileID: 0}
-    - target: {fileID: 8422613923639342767, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
-      propertyPath: _states.Array.data[2]._ID
-      value: Attack
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795128679666637580, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795128679666637580, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8087,33 +8068,9 @@ PrefabInstance:
       propertyPath: _wayPoints.Array.data[2]
       value: 
       objectReference: {fileID: 1887650074}
-    - target: {fileID: 5344708754207642863, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: _wayPoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 1793597847}
-    - target: {fileID: 6003973997686571901, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003973997686571901, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6082599605859002549, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
       propertyPath: m_Name
       value: Warrior (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: _states.Array.data[0]._ID
-      value: Patrol
-      objectReference: {fileID: 0}
-    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: _states.Array.data[1]._ID
-      value: Chase
-      objectReference: {fileID: 0}
-    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: _states.Array.data[2]._ID
-      value: Attack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8144,10 +8101,6 @@ PrefabInstance:
     - target: {fileID: 3282247406441889903, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: m_Name
       value: Noble
-      objectReference: {fileID: 0}
-    - target: {fileID: 3282247406441889903, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4226326661292886515, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8189,26 +8142,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _states.Array.data[0]._ID
-      value: Patrol
-      objectReference: {fileID: 0}
-    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _states.Array.data[1]._ID
-      value: Chase
-      objectReference: {fileID: 0}
-    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _states.Array.data[2]._ID
-      value: Attack
-      objectReference: {fileID: 0}
     - target: {fileID: 7009171309281349228, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 2130905586}
-    - target: {fileID: 7019271770462864046, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _wayPoints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7019271770462864046, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: _wayPoints.Array.data[0]
       value: 
@@ -42792,10 +42729,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Noble (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 3282247406441889903, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4226326661292886515, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.16
@@ -42835,18 +42768,6 @@ PrefabInstance:
     - target: {fileID: 4226326661292886515, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _states.Array.data[0]._ID
-      value: Patrol
-      objectReference: {fileID: 0}
-    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _states.Array.data[1]._ID
-      value: Chase
-      objectReference: {fileID: 0}
-    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _states.Array.data[2]._ID
-      value: Attack
       objectReference: {fileID: 0}
     - target: {fileID: 7009171309281349228, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: _audioManager
@@ -42992,30 +42913,6 @@ PrefabInstance:
     - target: {fileID: 7824857845660908351, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
       propertyPath: m_Name
       value: Monk (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8422613923639342767, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
-      propertyPath: _states.Array.data[0]._ID
-      value: Patrol
-      objectReference: {fileID: 0}
-    - target: {fileID: 8422613923639342767, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
-      propertyPath: _states.Array.data[1]._ID
-      value: Chase
-      objectReference: {fileID: 0}
-    - target: {fileID: 8422613923639342767, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
-      propertyPath: _states.Array.data[2]._ID
-      value: Attack
-      objectReference: {fileID: 0}
-    - target: {fileID: 8422613923639342767, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
-      propertyPath: _states.Array.data[1].Transitions.Array.data[1].FalseState
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795128679666637580, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795128679666637580, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -43609,10 +43506,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130905586}
     - target: {fileID: 5344708754207642863, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: _wayPoints.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5344708754207642863, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
       propertyPath: _wayPoints.Array.data[0]
       value: 
       objectReference: {fileID: 7501246}
@@ -43624,33 +43517,9 @@ PrefabInstance:
       propertyPath: _wayPoints.Array.data[2]
       value: 
       objectReference: {fileID: 855777717}
-    - target: {fileID: 6003973997686571901, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003973997686571901, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6082599605859002549, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
       propertyPath: m_Name
       value: Warrior (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6082599605859002549, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: _states.Array.data[0]._ID
-      value: Patrol
-      objectReference: {fileID: 0}
-    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: _states.Array.data[1]._ID
-      value: Chase
-      objectReference: {fileID: 0}
-    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: _states.Array.data[2]._ID
-      value: Attack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -43729,18 +43598,6 @@ PrefabInstance:
     - target: {fileID: 7824857845660908351, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
       propertyPath: m_Name
       value: Monk
-      objectReference: {fileID: 0}
-    - target: {fileID: 8422613923639342767, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
-      propertyPath: _states.Array.data[0]._ID
-      value: Patrol
-      objectReference: {fileID: 0}
-    - target: {fileID: 8422613923639342767, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
-      propertyPath: _states.Array.data[1]._ID
-      value: Chase
-      objectReference: {fileID: 0}
-    - target: {fileID: 8422613923639342767, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
-      propertyPath: _states.Array.data[2]._ID
-      value: Attack
       objectReference: {fileID: 0}
     - target: {fileID: 8795128679666637580, guid: 4fbed656fd1408b4e90e0c7de1331daa, type: 3}
       propertyPath: m_AnchorMax.x
@@ -44492,10 +44349,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Noble (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 3282247406441889903, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4226326661292886515, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: m_LocalPosition.x
       value: 31.91
@@ -44536,26 +44389,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _states.Array.data[0]._ID
-      value: Patrol
-      objectReference: {fileID: 0}
-    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _states.Array.data[1]._ID
-      value: Chase
-      objectReference: {fileID: 0}
-    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _states.Array.data[2]._ID
-      value: Attack
-      objectReference: {fileID: 0}
     - target: {fileID: 7009171309281349228, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 2130905586}
-    - target: {fileID: 7019271770462864046, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _wayPoints.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7019271770462864046, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: _wayPoints.Array.data[0]
       value: 
@@ -45034,10 +44871,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Noble (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 3282247406441889903, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4226326661292886515, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: m_LocalPosition.x
       value: 38.67
@@ -45078,26 +44911,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _states.Array.data[0]._ID
-      value: Patrol
-      objectReference: {fileID: 0}
-    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _states.Array.data[1]._ID
-      value: Chase
-      objectReference: {fileID: 0}
-    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _states.Array.data[2]._ID
-      value: Attack
-      objectReference: {fileID: 0}
     - target: {fileID: 7009171309281349228, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 2130905586}
-    - target: {fileID: 7019271770462864046, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _wayPoints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7019271770462864046, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: _wayPoints.Array.data[0]
       value: 
@@ -45565,17 +45382,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2332713771214620733, guid: ffd50fc050ec1be42bba3e8f86c182b1, type: 3}
   m_PrefabInstance: {fileID: 1793597845}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1793597847 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 160722194524184092, guid: ffd50fc050ec1be42bba3e8f86c182b1, type: 3}
-  m_PrefabInstance: {fileID: 1793597845}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d70222325ffa113499465bc10d4a8555, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1812171867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45854,21 +45660,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 345183255}
     m_Modifications:
-    - target: {fileID: 1209809897872139127, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1209809897872139127, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3282247406441889903, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: m_Name
       value: Noble (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3282247406441889903, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4226326661292886515, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: m_LocalPosition.x
@@ -45910,26 +45704,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _states.Array.data[0]._ID
-      value: Patrol
-      objectReference: {fileID: 0}
-    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _states.Array.data[1]._ID
-      value: Chase
-      objectReference: {fileID: 0}
-    - target: {fileID: 6649620166107754203, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _states.Array.data[2]._ID
-      value: Attack
-      objectReference: {fileID: 0}
     - target: {fileID: 7009171309281349228, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 2130905586}
-    - target: {fileID: 7019271770462864046, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
-      propertyPath: _wayPoints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7019271770462864046, guid: dc7589ac8e7bf3c40a3eaa3975d5f330, type: 3}
       propertyPath: _wayPoints.Array.data[0]
       value: 
@@ -46225,6 +46003,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70222325ffa113499465bc10d4a8555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1958593960
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 229377691}
+    m_Modifications:
+    - target: {fileID: 1422530085339172530, guid: 7b234e7ba0797b3498e2477ac9927ec9, type: 3}
+      propertyPath: m_Name
+      value: MedKit (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422530085339172530, guid: 7b234e7ba0797b3498e2477ac9927ec9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549367703955708125, guid: 7b234e7ba0797b3498e2477ac9927ec9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 43.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549367703955708125, guid: 7b234e7ba0797b3498e2477ac9927ec9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549367703955708125, guid: 7b234e7ba0797b3498e2477ac9927ec9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.918877
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549367703955708125, guid: 7b234e7ba0797b3498e2477ac9927ec9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549367703955708125, guid: 7b234e7ba0797b3498e2477ac9927ec9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549367703955708125, guid: 7b234e7ba0797b3498e2477ac9927ec9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549367703955708125, guid: 7b234e7ba0797b3498e2477ac9927ec9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549367703955708125, guid: 7b234e7ba0797b3498e2477ac9927ec9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549367703955708125, guid: 7b234e7ba0797b3498e2477ac9927ec9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549367703955708125, guid: 7b234e7ba0797b3498e2477ac9927ec9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7b234e7ba0797b3498e2477ac9927ec9, type: 3}
+--- !u!4 &1958593961 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8549367703955708125, guid: 7b234e7ba0797b3498e2477ac9927ec9, type: 3}
+  m_PrefabInstance: {fileID: 1958593960}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1988640418 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8278850122623950169, guid: be06d8f71177e3444aa1b350c6873ff7, type: 3}
@@ -46659,10 +46503,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130905586}
     - target: {fileID: 5344708754207642863, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: _wayPoints.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5344708754207642863, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
       propertyPath: _wayPoints.Array.data[0]
       value: 
       objectReference: {fileID: 1287167304}
@@ -46685,22 +46525,6 @@ PrefabInstance:
     - target: {fileID: 6082599605859002549, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
       propertyPath: m_Name
       value: Warrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 6082599605859002549, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: _states.Array.data[0]._ID
-      value: Patrol
-      objectReference: {fileID: 0}
-    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: _states.Array.data[1]._ID
-      value: Chase
-      objectReference: {fileID: 0}
-    - target: {fileID: 7127647535319806521, guid: 3025bcfdfb10d54418b8028f30429e34, type: 3}
-      propertyPath: _states.Array.data[2]._ID
-      value: Attack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -46733,32 +46557,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130905586}
     - target: {fileID: 2665123632112669595, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: _isMobile
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2665123632112669595, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
       propertyPath: _mobileInput
       value: 
       objectReference: {fileID: 596461730}
     - target: {fileID: 3875737520586035040, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3875737520586035040, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4519474845824559998, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: _extraSpeed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5282575858973171367, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8366288304982679646, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: _maxHealth
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8366288304982679646, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
       propertyPath: _inventoryView
@@ -46803,10 +46607,6 @@ PrefabInstance:
     - target: {fileID: 8436374984907252487, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053623478988778226, guid: dafec59cc00259a4db511db0e7b573bd, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

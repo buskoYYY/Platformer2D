@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 2102423346616040054}
-  _maxHealth: 6
+  _maxHealth: 7
   _interactableCanvas: {fileID: 5282575858973171367}
   _inventoryView: {fileID: 0}
 --- !u!114 &8475237828420256609
@@ -688,7 +688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4760374309576003032, guid: 2da3a8178d83d914e90d1fee293d728c, type: 3}
       propertyPath: m_SortingOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4760374309576003032, guid: 2da3a8178d83d914e90d1fee293d728c, type: 3}
       propertyPath: m_SortingLayerID

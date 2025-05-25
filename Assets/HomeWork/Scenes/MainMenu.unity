@@ -1578,6 +1578,9 @@ MonoBehaviour:
   - Level3
   - Level4
   - Level5
+  - Level6
+  - Level7
+  - Level8
   _selectLevelWindow: {fileID: 1997529413}
 --- !u!4 &639087735
 Transform:

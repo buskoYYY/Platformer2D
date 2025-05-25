@@ -149,7 +149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4226326661292886515
 Transform:
   m_ObjectHideFlags: 0
@@ -265,7 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wayPoints:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -402,7 +401,7 @@ MonoBehaviour:
     - Decision: {fileID: 2892542259772968577}
       TrueState: Chase
       FalseState: 
-    _ID: 
+    _ID: Patrol
   - Actions:
     - {fileID: 712279133732236601}
     Transitions:
@@ -412,14 +411,14 @@ MonoBehaviour:
     - Decision: {fileID: 703871615910109733}
       TrueState: Attack
       FalseState: 
-    _ID: 
+    _ID: Chase
   - Actions:
     - {fileID: 2438713747767503175}
     Transitions:
     - Decision: {fileID: 703871615910109733}
       TrueState: 
       FalseState: Chase
-    _ID: 
+    _ID: Attack
   _initState: Patrol
 --- !u!114 &3975260277517287079
 MonoBehaviour:
@@ -450,6 +449,7 @@ MonoBehaviour:
   _poolCount: 3
   _autoExpand: 1
   _hitEffect: {fileID: 3717935869477163416, guid: b9872d9ebcf288f4b96c7a33d2d0b83e, type: 3}
+  _puffEffect: {fileID: 0}
 --- !u!1 &4143651143670649136
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,11 +648,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7890081563342768667, guid: a0e6f71272c927d44ab820807fdca8d6, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7890081563342768667, guid: a0e6f71272c927d44ab820807fdca8d6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7890081563342768667, guid: a0e6f71272c927d44ab820807fdca8d6, type: 3}
       propertyPath: m_SizeDelta.x

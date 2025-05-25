@@ -485,7 +485,7 @@ MonoBehaviour:
     - Decision: {fileID: 4021907280960353749}
       TrueState: Chase
       FalseState: 
-    _ID: 
+    _ID: Patrol
   - Actions:
     - {fileID: 568425678434667402}
     Transitions:
@@ -495,14 +495,14 @@ MonoBehaviour:
     - Decision: {fileID: 6697740190960346232}
       TrueState: Attack
       FalseState: 
-    _ID: 
+    _ID: Chase
   - Actions:
     - {fileID: 2762954043149859154}
     Transitions:
     - Decision: {fileID: 6697740190960346232}
       TrueState: 
       FalseState: Chase
-    _ID: 
+    _ID: Attack
   _initState: Patrol
 --- !u!114 &501635003645697714
 MonoBehaviour:
@@ -533,6 +533,7 @@ MonoBehaviour:
   _poolCount: 3
   _autoExpand: 1
   _hitEffect: {fileID: 3717935869477163416, guid: b9872d9ebcf288f4b96c7a33d2d0b83e, type: 3}
+  _puffEffect: {fileID: 0}
 --- !u!1001 &1689308972378935575
 PrefabInstance:
   m_ObjectHideFlags: 0
