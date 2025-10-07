@@ -1,7 +1,7 @@
 <img width="1611" height="908" alt="2" src="https://github.com/user-attachments/assets/1b083c3d-8ae9-4f04-9687-3f67d4b90918" />
 
  Ссылка на игру
-[https://yandex.ru/games/app/426243?lang=ru](https://buskoyyygmailcom.itch.io/way-of-the-warrior)
+https://buskoyyygmailcom.itch.io/way-of-the-warrior
 
 Описание проекта:
 2d top down игра,  в которойпредстоит играть за ниндзю. В игре есть 8 уровней сложности и 9 типов врагов.
